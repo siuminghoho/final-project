@@ -2,13 +2,13 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import './App.css';
-import { Admin } from './pages/Admin';
+import { Menu } from './pages/Menu';
 function App() {
   return (
     <>
     <Container fluid>
     <div>
-    <Admin/>
+    <Menu/>
     </div>
     </Container>
    </>

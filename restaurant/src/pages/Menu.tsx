@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Admin.css";
+import "./Menu.css";
 import { Link } from "react-router-dom";
 // import { Container } from "react-bootstrap";
 
-export const Admin = () => {
+export const Menu = () => {
   // State to manage the visibility of the Offcanvas
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -46,22 +46,22 @@ export const Admin = () => {
             <div className="offcanvas-body">
               <ul className="list-unstyled">
                 <li>
-                  <a href="/">主頁</a>
+                  <Link to="/admin">主頁</Link>
                 </li>
                 <li>
-                  <a href="/orderRecord">點餐記錄</a>
+                  <Link to="/admin/orderRecord">點餐記錄</Link>
                 </li>
                 <li>
-                  <a href="/inventory">存貨查詢</a>
+                  <Link to="admin/inventory">存貨查詢</Link>
                 </li>
                 <li>
-                  <a href="/message">查閱信息</a>
+                  <Link to="admin/message">查閱信息</Link>
                 </li>
                 <li>
-                  <a href="/edit">編輯系統</a>
+                  <Link to="admin/edit">編輯系統</Link>
                 </li>
                 <li>
-                  <a href="/logout">登出</a>
+                  <Link to="/logout">登出</Link>
                 </li>
               </ul>
             </div>
