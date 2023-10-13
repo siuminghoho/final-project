@@ -62,8 +62,8 @@ export const AdminMenu = () => {
                 </li>
                 <li>
                   <Link to="admin/inventory">存貨查詢</Link>
-                </li>
-                <li>
+                </li> 
+                 <li>
                   <Link to="admin/message">查閱信息</Link>
                 </li>
                 <li>
