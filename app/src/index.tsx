@@ -28,7 +28,7 @@ root.render(
           <Route index element={<AdminLoginPage />} />
           <Route path="orderRecord" element={<AdminOrderRecordPage />} />
           <Route path="menu" element={<AdminMenu />} />
-          {/*  <Route path="edit" element={<Edit />} />}
+          {/* <Route path="edit" element={<Edit />} />}
         {/* <Route path="*" element={<NotFound />} /> */}
         </Route>
       </Routes>

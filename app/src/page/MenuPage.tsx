@@ -7,7 +7,7 @@ import { Subcategories } from "../component/SubCategories";
 export function MenuPage() {
   const { state } = useLocation();
   const { menu_name, menu_id } = state;
-  const menus = [
+  const menusDummyData = [
     {
       menu_id: 1,
       menu_name: "早餐",
@@ -51,12 +51,14 @@ export function MenuPage() {
   //   sub_category_name: menus[menu_id - 1].sub_categories[0].sub_category_name,
   //   sub_category_id: menus[menu_id - 1].sub_categories,
   // });
-  const [selected_sub_categories, setSelected_sub_categories] = useState({
-    sub_category_name: menus[menu_id - 1].sub_categories[0].sub_category_name,
-    sub_category_id: menus[menu_id - 1].sub_categories[0].sub_category_id,
+  const [selected_sub_category, setSelected_sub_category] = useState({
+    sub_category_name:
+      menusDummyData[menu_id - 1].sub_categories[0].sub_category_name,
+    sub_category_id:
+      menusDummyData[menu_id - 1].sub_categories[0].sub_category_id,
   });
   const onChange = (subCategoryId: number, subCategoryName: string) => {
-    setSelected_sub_categories({
+    setSelected_sub_category({
       sub_category_name: subCategoryName,
       sub_category_id: subCategoryId,
     });
@@ -67,20 +69,19 @@ export function MenuPage() {
         {
           <Navbars
             onClick={onChange}
-            menu_id={menus[menu_id - 1].menu_id}
-            sub_categories={menus[menu_id - 1].sub_categories}
-            key={menus[menu_id - 1].menu_id}
+            menu_id={menusDummyData[menu_id - 1].menu_id}
+            sub_categories={menusDummyData[menu_id - 1].sub_categories}
+            key={menusDummyData[menu_id - 1].menu_id}
           ></Navbars>
         }
       </div>
 
       <h1>{menu_name}</h1>
-      <h2>{selected_sub_categories.sub_category_name}</h2>
+      <h2>{selected_sub_category.sub_category_name}</h2>
       <Subcategories
-        sub_categories={menus[menu_id - 1].sub_categories.map(
-          (subcategory) => ({ sub_category_id: subcategory.sub_category_id })
-        )}
-      />
+        menu_id={menusDummyData[menu_id - 1].menu_id}
+        sub_category_id={selected_sub_category.sub_category_id}
+      ></Subcategories>
     </>
   );
 }

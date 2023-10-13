@@ -4,7 +4,7 @@ import Modals from "../component/Modals";
 import "./HomePage.css";
 
 export function HomePage() {
-  const menus = [
+  const menusDummyData = [
     {
       menu_id: 1,
       menu_name: "早餐",
@@ -27,7 +27,7 @@ export function HomePage() {
         <h1>damcham</h1>
       </div>
       <div className="cardContainer">
-        {menus.map((menu) => (
+        {menusDummyData.map((menu) => (
           <Cards
             menu_name={menu.menu_name}
             menu_id={menu.menu_id}
