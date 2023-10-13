@@ -21,24 +21,33 @@ export const Menu = () => {
           {/* <Container fluid> */}
 
           {/* add bootstrap hamburger menu */}
-          <button
+          <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
+            <button
+              className="navbar-toggler"
+              type="button"
+              onClick={toggleSidebar}
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </nav>
+
+          {/* <button
             className="btn btn-primary"
             type="button"
             onClick={toggleSidebar}
           >
             Toggle sidebar
-          </button>
+          </button> */}
           {/* Offcanvas element */}
           <div
             className={`offcanvas offcanvas-start ${sidebarOpen ? "show" : ""}`}
             id="sidebar"
-            aria-labelledby="sidebarLabel"
           >
             <div className="offcanvas-header">
-              <h5 id="sidebarLabel">Sidebar</h5>
+              <div id="sidebarLabel">restaurant name</div>
               <button
                 type="button"
-                className="btn-close text-reset"
+                className="btn-close btn-close-custom text-reset"
                 onClick={toggleSidebar}
                 aria-label="Close"
               ></button>
@@ -51,12 +60,12 @@ export const Menu = () => {
                 <li>
                   <Link to="/admin/orderRecord">點餐記錄</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="admin/inventory">存貨查詢</Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link to="admin/message">查閱信息</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link to="admin/edit">編輯系統</Link>
                 </li>

@@ -2126,6 +2126,13 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/permit@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@types/permit/-/permit-0.2.2.tgz#5351d1d9b55d2d9eebc15a1f6302d6dfacc469ea"
+  integrity sha512-GXlSlXFN11zyFd708Hy84c96q9l/DxyY9COTzc3VxTaiH5kD0c57ri6jUkqyU7QP/hklbzvcOWtXAeKc8Xg/ww==
+  dependencies:
+    "@types/node" "*"
+
 "@types/prettier@^2.1.5":
   version "2.7.3"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.7.3.tgz#3e51a17e291d01d17d3fc61422015a933af7a08f"
@@ -6289,6 +6296,11 @@ jsonpointer@^5.0.0:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+jwt-simple@^0.5.6:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/jwt-simple/-/jwt-simple-0.5.6.tgz#3357adec55b26547114157be66748995b75b333a"
+  integrity sha512-40aUybvhH9t2h71ncA1/1SbtTNCVZHgsTsTgqPUxGWDmUDrXyDf2wMNQKEbdBjbf4AI+fQhbECNTV6lWxQKUzg==
+
 keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.4.tgz#a879a99e29452f942439f2a405e3af8b31d4de93"
@@ -7018,6 +7030,11 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==
+
+permit@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/permit/-/permit-0.2.4.tgz#3af2c8f5bd798f771be50eb59cecd1da6459a383"
+  integrity sha512-Mp2XTEMD3mPsZIWq3bp0claE4IxXKa4C6nhSDPZgGri8Q4CLjEjAQrP/xGKq2548a2KFENmA1V7W0Lob8kTuzw==
 
 picocolors@^0.2.1:
   version "0.2.1"
