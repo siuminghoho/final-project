@@ -60,12 +60,12 @@ export const Menu = () => {
                 <li>
                   <Link to="/admin/orderRecord">點餐記錄</Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link to="admin/inventory">存貨查詢</Link>
-                </li> */}
-                {/* <li>
+                </li> 
+                 <li>
                   <Link to="admin/message">查閱信息</Link>
-                </li> */}
+                </li>
                 <li>
                   <Link to="admin/edit">編輯系統</Link>
                 </li>
