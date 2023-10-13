@@ -1,0 +1,17 @@
+.navbarControl {
+  display: flex;
+  justify-content: center;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+.cardItem {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
+}

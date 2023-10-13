@@ -1,0 +1,13 @@
+.gradient-custom {
+  /* Assuming you've defined a custom gradient here */
+}
+
+.card-custom {
+  background-color: #007bff;
+  color: 007BFF;
+  border-radius: 1rem;
+}
+
+.font-size-lg {
+  font-size: 1.5em; /* Adjust this value as needed */
+}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import "./AdminOrderRecordPage.css";
+// import "bootstrap-icons/font/bootstrap-icons.css";
 
-import "bootstrap-icons/font/bootstrap-icons.css";
-
-export const OrderRecord = () => {
+export const AdminOrderRecordPage = () => {
   const [hadScanned, setHadScanned] = useState(false);
 
   const handleQRscan = () => {
