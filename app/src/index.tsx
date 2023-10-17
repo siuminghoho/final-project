@@ -5,6 +5,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 import { HomePage } from "./page/HomePage";
 import AdminRoot from "./page/AdminRoot";
@@ -12,6 +13,7 @@ import { MenuPage } from "./page/MenuPage";
 import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLoginPage } from "./page/AdminLoginPage";
+<<<<<<< HEAD
 import { AdminTicket } from "./page/AdminTicket";
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -22,7 +24,13 @@ import {Provider} from 'react-redux';
 
 
 
+=======
+import { ItemDetailPage } from "./page/ItemDetailPage";
+>>>>>>> 23e421b84b0ebb4422bacebc81bbba5ad4bdc8d1
 
+// import { AdminMessage } from "./page/AdminMessage";
+// import { AdminEditPage } from "./page/AdminEditPage";
+export const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -30,6 +38,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter>
+<<<<<<< HEAD
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} />
@@ -40,9 +49,22 @@ root.render(
           <Route path="ticket" element={<AdminTicket />} />
           <Route path="scan" element={<AdminScan />} />
           {/*  <Route path="edit" element={<Edit />} />}
+=======
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/foodDetail" element={<ItemDetailPage />} />
+          <Route path="/admin" element={<AdminRoot />}>
+            <Route index element={<AdminLoginPage />} />
+            <Route path="orderRecord" element={<AdminOrderRecordPage />} />
+            <Route path="menu" element={<AdminMenu />} />
+            {/* <Route path="edit" element={<Edit />} />}
+>>>>>>> 23e421b84b0ebb4422bacebc81bbba5ad4bdc8d1
         {/* <Route path="*" element={<NotFound />} /> */}
-        </Route>
-      </Routes>
+          </Route>
+        </Routes>
+      </QueryClientProvider>
     </BrowserRouter>
     </Provider>
   </React.StrictMode>

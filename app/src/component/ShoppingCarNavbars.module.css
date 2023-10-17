@@ -1,0 +1,9 @@
+.shoppingCart {
+  width: 50px;
+}
+
+.button {
+  justify-content: start;
+  align-items: center;
+  display: flex;
+}

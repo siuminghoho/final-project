@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import styles from "./Navbars.module.css";
 
 function ColorSchemesExample(props: {
   menu_id: number;
@@ -12,9 +13,9 @@ function ColorSchemesExample(props: {
 }) {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
-          <Nav className="me-auto">
+      <Navbar className={styles.navbar} bg="warning" data-bs-theme="dark">
+        <Container className={styles.navbar}>
+          <Nav className={styles["me-auto"]}>
             {props.sub_categories.map((category) => (
               <Nav.Link
                 href=""
@@ -25,6 +26,7 @@ function ColorSchemesExample(props: {
                     category.sub_category_name
                   )
                 }
+                className={styles["nav-link-custom"]}
               >
                 {category.sub_category_name}
               </Nav.Link>
