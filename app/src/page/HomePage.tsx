@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Cards from "../component/Cards";
 import Modals from "../component/Modals";
 import "./HomePage.css";

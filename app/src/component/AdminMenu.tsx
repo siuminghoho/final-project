@@ -15,13 +15,13 @@ export const AdminMenu = () => {
 
   return (
     <>
-      <div className="safe-area-container">
+      <div className="safe-area-container ">
         <div className="app-container">
           {/* <div className="iphoneIsland"></div> */}
           {/* <Container fluid> */}
 
           {/* add bootstrap hamburger menu */}
-          <nav className="navbar navbar-expand-lg navbar-light bg-light p-0">
+          <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 adminNav">
             <button
               className="navbar-toggler"
               type="button"
