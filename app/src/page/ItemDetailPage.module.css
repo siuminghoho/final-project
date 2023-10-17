@@ -1,0 +1,30 @@
+.foodTittle {
+  display: flex;
+  justify-content: center;
+}
+
+.foodOption {
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionLeft {
+  display: flex;
+  align-items: center;
+}
+
+.optionRight {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.shoppingCarNavbars {
+  margin-top: auto;
+}

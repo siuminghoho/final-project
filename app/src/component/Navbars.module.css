@@ -1,0 +1,17 @@
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.nav-link-custom {
+  color: black;
+  /* display: flex; */
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.me-auto {
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
