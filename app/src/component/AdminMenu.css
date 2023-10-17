@@ -13,6 +13,14 @@
   z-index: 1040;
 } */
 
+.adminNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1040;
+}
+
 .sidebarLabel {
   color: #fff;
   font-size: 4px;

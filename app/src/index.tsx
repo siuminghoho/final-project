@@ -15,6 +15,8 @@ import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLoginPage } from "./page/AdminLoginPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
 import { CheckOutPage } from "./page/CheckOutPage";
+import { Provider } from "react-redux";
+import store from "./store";
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -24,23 +26,25 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/foodDetail" element={<ItemDetailPage />} />
-          <Route path="/checkOut" element={<CheckOutPage />} />
-          <Route path="/admin" element={<AdminRoot />}>
-            <Route index element={<AdminLoginPage />} />
-            <Route path="orderRecord" element={<AdminOrderRecordPage />} />
-            <Route path="menu" element={<AdminMenu />} />
-            {/* <Route path="edit" element={<Edit />} />}
+    <Provider store={store}>
+      <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/foodDetail" element={<ItemDetailPage />} />
+            <Route path="/checkOut" element={<CheckOutPage />} />
+            <Route path="/admin" element={<AdminRoot />}>
+              <Route index element={<AdminLoginPage />} />
+              <Route path="orderRecord" element={<AdminOrderRecordPage />} />
+              <Route path="menu" element={<AdminMenu />} />
+              {/* <Route path="edit" element={<Edit />} />}
         {/* <Route path="*" element={<NotFound />} /> */}
-          </Route>
-        </Routes>
-      </QueryClientProvider>
-    </BrowserRouter>
+            </Route>
+          </Routes>
+        </QueryClientProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
