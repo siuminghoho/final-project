@@ -14,6 +14,7 @@ import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLoginPage } from "./page/AdminLoginPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
+import { CheckOutPage } from "./page/CheckOutPage";
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -29,6 +30,7 @@ root.render(
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/foodDetail" element={<ItemDetailPage />} />
+          <Route path="/checkOut" element={<CheckOutPage />} />
           <Route path="/admin" element={<AdminRoot />}>
             <Route index element={<AdminLoginPage />} />
             <Route path="orderRecord" element={<AdminOrderRecordPage />} />

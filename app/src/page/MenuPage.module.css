@@ -1,0 +1,16 @@
+.title {
+  background-color: #ffc107;
+}
+
+.menuTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnButton {
+  background-color: #ffc107;
+  display: flex;
+  justify-content: start;
+  align-self: flex-start;
+}

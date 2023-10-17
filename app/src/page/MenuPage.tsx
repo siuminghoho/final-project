@@ -1,13 +1,17 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbars from "../component/Navbars";
 
 import React, { useState } from "react";
 import { Subcategories } from "../component/SubCategories";
 import { ItemDetailPage } from "./ItemDetailPage";
+import styles from "./MenuPage.module.css";
+import { useQueryClient } from "@tanstack/react-query";
 
 export function MenuPage() {
   const { state } = useLocation();
   const { menu_name, menu_id } = state;
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const menusDummyData = [
     {
       menu_id: 1,
@@ -73,9 +77,25 @@ export function MenuPage() {
       sub_category_name: subCategoryName,
       sub_category_id: subCategoryId,
     });
+
+    queryClient.invalidateQueries({
+      queryKey: ["SubcatMenu", menu_id, subCategoryName],
+    });
   };
   return (
     <>
+      <div className={styles.title}>
+        <button
+          className={styles.returnButton}
+          type="button"
+          onClick={() => navigate(-1)}
+        >
+          返回
+        </button>
+        <div className={styles.menuTitle}>
+          <h1>damcham</h1>
+        </div>
+      </div>
       <div>
         {
           <Navbars
@@ -92,6 +112,7 @@ export function MenuPage() {
       <Subcategories
         menu_id={menusDummyData[menu_id - 1].menu_id}
         sub_category_id={selected_sub_category.sub_category_id}
+        sub_category_name={selected_sub_category.sub_category_name}
       ></Subcategories>
     </>
   );

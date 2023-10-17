@@ -1,0 +1,28 @@
+.tittle {
+  display: flex;
+  justify-content: center;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price h3:first-child {
+  margin-right: 20px;
+}
+
+.pay {
+  display: flex;
+  justify-content: center;
+}
+
+.payment {
+  display: flex;
+  justify-content: center;
+}
