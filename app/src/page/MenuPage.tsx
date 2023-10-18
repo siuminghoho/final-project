@@ -54,7 +54,15 @@ export function MenuPage() {
     },
     {
       menu_id: 4,
-      menu_name: "飲品",
+      menu_name: "熱飲",
+      sub_categories: [
+        { sub_category_id: 1, sub_category_name: "熱飲" },
+        { sub_category_id: 2, sub_category_name: "凍飲" },
+      ],
+    },
+    {
+      menu_id: 5,
+      menu_name: "凍飲",
       sub_categories: [
         { sub_category_id: 1, sub_category_name: "熱飲" },
         { sub_category_id: 2, sub_category_name: "凍飲" },
