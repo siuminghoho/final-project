@@ -22,7 +22,7 @@ function FoodCards(props: {
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>{food.sub_category_food_name}</Card.Title>
-            <div className={styles.tittle}>
+            <div className={styles.title}>
               <h1>$??</h1>
               <Button
                 variant="primary"

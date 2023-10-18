@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import {uuidReducer} from "./foodOrderSlice"; // assuming uuidSlice is in the same directory
+import {uuidReducer} from "./uuidSlice"; // assuming uuidSlice is in the same directory
 
 const store = configureStore({
     reducer: {

@@ -29,7 +29,7 @@ function Cards(props: {
           style={{ width: "100%", height: "70%" }}
         />
         <Card.Body>
-          <div className={styles.tittle}>
+          <div className={styles.title}>
             <Card.Title>{props.menu_name}</Card.Title>
           </div>
         </Card.Body>

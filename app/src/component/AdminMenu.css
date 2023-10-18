@@ -45,8 +45,8 @@
 .app-container {
   width: 430px;
   height: 932px;
-  margin: 0 auto; /* This will center the container horizontally */
-  overflow: hidden; /* This will hide anything that overflows the container's dimensions */
+  margin: 0 auto; 
+  overflow: hidden; 
 }
 
 .btn-primary {

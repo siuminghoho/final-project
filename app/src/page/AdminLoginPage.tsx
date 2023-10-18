@@ -2,69 +2,161 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AdminLoginPage.css";
 
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { RegisterAPI } from "../RegisterAPI";
+// import { LoginAPI } from '../LoginAPI';
 export const AdminLoginPage = () => {
-  const [username, setUsername] = useState("");
+  // State hooks for form inputs
+  const [staffNumber, setStaffNumber] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (event: { preventDefault: () => void }) => {
-    event.preventDefault(); // to prevent form submission
+  // State hook to toggle between Login and Register forms
+  const [isLogin, setIsLogin] = useState(true);
 
-    if (!username.trim()) {
-      alert("請輸入使用者名稱");
+  // React Query's QueryClient for query invalidation
+  const queryClient = useQueryClient();
+
+  // Mutation setup for registration
+  const registerMutation = useMutation(RegisterAPI, {
+    onSuccess: () => {
+      // Invalidate queries if necessary, display success message, redirect user, etc.
+      queryClient.invalidateQueries("RegisterAPI");
+      alert("Registration Successful! You may now log in.");
+    },
+    onError: () => {
+      // Handle errors locally
+      alert("An error occurred during registration.");
+    },
+  });
+
+  // Mutation setup for login
+  const loginMutation = useMutation(LoginAPI, {
+    onSuccess: (data) => {
+      // Invalidate queries if necessary, set up user session, redirect, etc.
+      queryClient.invalidateQueries("userData");
+      alert("Login Successful!");
+      // Here, you would typically handle redirection to the main app, store user session, etc.
+      // e.g., history.push('/dashboard');
+    },
+    onError: () => {
+      // Handle errors locally
+      alert("An error occurred during login.");
+    },
+  });
+
+  // Function to handle form submission
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault(); // Prevent page reload
+
+    // Validate inputs
+    if (!staffNumber.trim() || !password.trim()) {
+      alert("Please fill in all fields.");
       return;
     }
-    if (!password.trim()) {
-      alert("請輸入密碼");
-      return;
+
+    const userDetails = {
+      staffno: staffNumber,
+      password: password,
+    };
+
+    // Decide which API call to make based on the form currently displayed
+    if (isLogin) {
+      loginMutation.mutate(userDetails);
+    } else {
+      registerMutation.mutate({
+        ...userDetails,
+        username: staffNumber, // Assuming the username is the staff number during registration
+      });
     }
-    // Add your actual login logic here...
   };
 
+  // Function to toggle between Login and Register forms
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+  };
+
+  // The UI of the component
   return (
-    <section className="vh-200 gradient-custom">
+    <section className="vh-100 gradient-custom">
+      {/* Existing layout and form structure */}
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12 col-md-8 col-lg-6 col-xl-5">
             <div className="card card-custom">
               <div className="card-body p-5 text-center">
-                <form onSubmit={handleLogin}>
-                  <div className="mb-md-5 mt-md-4 pb-5 font-size-lg">
-                    <h2 className="fw-bold mb-2 text-uppercase">登入</h2>
+                <h2 className="fw-bold mb-2 text-uppercase">
+                  {isLogin ? "Login" : "Register"}
+                </h2>
+
+                {/* Toggle between Login and Register */}
+                <button
+                  className="btn btn-primary btn-lg px-5 mb-3"
+                  onClick={toggleForm}
+                >
+                  Switch to {isLogin ? "Register" : "Login"}
+                </button>
+
+                {/* Form for Login/Register */}
+                <form onSubmit={handleSubmit}>
+                  {/* ... form inputs ... */}
+
+                  <form onSubmit={handleSubmit}>
                     <div className="form-outline form-white mb-4">
                       <input
                         type="text"
-                        placeholder="呀娣"
-                        id="typeUsernameX"
+                        id="typeUsername"
                         className="form-control form-control-lg"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Staff Number"
+                        value={staffNumber}
+                        onChange={(e) => setStaffNumber(e.target.value)}
                       />
-                      <label className="form-label" htmlFor="typeUsernameX">
-                        使用者名稱
+                      <label className="form-label" htmlFor="typeUsername">
+                        Staff Number
                       </label>
                     </div>
 
                     <div className="form-outline form-white mb-4">
                       <input
                         type="password"
-                        placeholder="8888"
-                        id="typePasswordX"
+                        id="typePassword"
                         className="form-control form-control-lg"
+                        placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                       />
-                      <label className="form-label" htmlFor="typePasswordX">
-                        密碼
+                      <label className="form-label" htmlFor="typePassword">
+                        Password
                       </label>
                     </div>
+
+                    {/* Submit button */}
                     <button
-                      className="btn btn-outline-light btn-lg px-5"
                       type="submit"
+                      className="btn btn-outline-light btn-lg px-5"
+                      disabled={
+                        registerMutation.isLoading || loginMutation.isLoading
+                      }
                     >
-                      登入
+                      {isLogin ? "Login" : "Register"}
                     </button>
-                  </div>
+                  </form>
+
+                  <button
+                    type="submit"
+                    className="btn btn-outline-light btn-lg px-5"
+                    disabled={
+                      registerMutation.isLoading || loginMutation.isLoading
+                    }
+                  >
+                    {isLogin ? "Login" : "Register"}
+                  </button>
                 </form>
+
+                {/* Error Messages */}
+                {registerMutation.isError ? (
+                  <p>Error during registration.</p>
+                ) : null}
+                {loginMutation.isError ? <p>Error during login.</p> : null}
               </div>
             </div>
           </div>

@@ -13,20 +13,15 @@ import { MenuPage } from "./page/MenuPage";
 import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLoginPage } from "./page/AdminLoginPage";
-<<<<<<< HEAD
 import { AdminTicket } from "./page/AdminTicket";
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
 import { AdminScan } from "./page/AdminScan";
 
-import store from './store';
-import {Provider} from 'react-redux';
+import store from "./store";
+import { Provider } from "react-redux";
 
-
-
-=======
 import { ItemDetailPage } from "./page/ItemDetailPage";
->>>>>>> 23e421b84b0ebb4422bacebc81bbba5ad4bdc8d1
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -37,20 +32,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-<<<<<<< HEAD
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/admin" element={<AdminRoot />}>
-          <Route index element={<AdminLoginPage />} />
-          <Route path="orderRecord" element={<AdminOrderRecordPage />} />
-          <Route path="menu" element={<AdminMenu />} />
-          <Route path="ticket" element={<AdminTicket />} />
-          <Route path="scan" element={<AdminScan />} />
-          {/*  <Route path="edit" element={<Edit />} />}
-=======
-      <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
@@ -59,13 +41,23 @@ root.render(
             <Route index element={<AdminLoginPage />} />
             <Route path="orderRecord" element={<AdminOrderRecordPage />} />
             <Route path="menu" element={<AdminMenu />} />
+            <Route path="ticket" element={<AdminTicket />} />
+            <Route path="scan" element={<AdminScan />} />
+            {/*  <Route path="edit" element={<Edit />} />}
+      <QueryClientProvider client={queryClient}>
+      <Routes>
+      <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/admin" element={<AdminRoot />}>
+            <Route index element={<AdminLoginPage />} />
+            <Route path="orderRecord" element={<AdminOrderRecordPage />} />
+            <Route path="menu" element={<AdminMenu />} />
             {/* <Route path="edit" element={<Edit />} />}
->>>>>>> 23e421b84b0ebb4422bacebc81bbba5ad4bdc8d1
         {/* <Route path="*" element={<NotFound />} /> */}
           </Route>
         </Routes>
-      </QueryClientProvider>
-    </BrowserRouter>
+        {/* </QueryClientProvider> */}
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );
@@ -74,5 +66,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-

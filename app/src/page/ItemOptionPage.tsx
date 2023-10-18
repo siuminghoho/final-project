@@ -7,7 +7,7 @@ export function ItemDetailPage() {
   return (
     <div className={styles.container}>
       <TestFoodCard />
-      <div className={styles.foodTittle}>
+      <div className={styles.foodTitle}>
         <h1>食品要求</h1>
       </div>
       <div className={styles.foodOption}>
@@ -26,7 +26,7 @@ export function ItemDetailPage() {
           <Checkbox />
         </div>
       </div>
-      <h1 className={styles.foodTittle}>飲品</h1>
+      <h1 className={styles.foodTitle}>飲品</h1>
 
       <div className={styles.foodOption}>
         <div className={styles.optionLeft}>
