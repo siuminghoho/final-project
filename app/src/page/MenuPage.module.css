@@ -11,6 +11,6 @@
 .returnButton {
   background-color: #ffc107;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-self: flex-start;
 }

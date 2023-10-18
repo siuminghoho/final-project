@@ -1,17 +1,43 @@
 .navbar {
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
+  /* flex-wrap: nowrap;
+  flex-direction: row; */
+
+  /* edit by felix */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-link-custom {
   color: black;
   /* display: flex; */
-  flex-wrap: nowrap;
-  flex-direction: row;
+  /* flex-wrap: nowrap;
+  flex-direction: row; */
+
+  flex:0 0 auto;
 }
 
 .me-auto {
   flex-wrap: nowrap;
-  flex-direction: row;
+  /* flex-direction: row; */
+  /* edit by felix */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+}
+
+
+/* Optional: Add styles for scrollbar */
+/* .me-auto::-webkit-scrollbar {
+  height: 8px; 
+  display:none;
+} */
+
+/* .me-auto::-webkit-scrollbar-thumb {
+  background-color: darkgrey; 
+  border-radius: 10px; 
+} */
+
+::-webkit-scrollbar {
+  display: none;
 }

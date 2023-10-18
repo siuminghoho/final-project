@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import styles from "./FoodCards.module.css";
 import { useNavigate } from "react-router-dom";
-import { Food } from "../menuAPI";
+import { Food } from "../API/menuAPI";
 
 function FoodCards(props: {
   menu_id: number;

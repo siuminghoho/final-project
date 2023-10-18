@@ -1,7 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 import Cards from "../component/Cards";
 import Modals from "../component/Modals";
-import { useMenu } from "../menuAPI";
+import { useMenu } from "../API/menuAPI";
 import "./HomePage.css";
 // import { useQueryClient } from "@tanstack/react-query";
 

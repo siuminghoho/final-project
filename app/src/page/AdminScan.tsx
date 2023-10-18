@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 import { BrowserQRCodeReader } from "@zxing/browser";
+import { AdminMenu } from "../component/AdminMenu";
+// import "..page/AdminMenu.css";
+
 
 function extractUUID(urlString: string) {
   // We create a URL object from the URL string to handle parsing correctly.
@@ -64,7 +67,9 @@ export function AdminScan() {
   }
 
   return (
+    <>
     <div className="container">
+    <AdminMenu/>
       <h1> Admin Scan</h1>
       {devices.length > 0 && (
         <div>
@@ -73,5 +78,7 @@ export function AdminScan() {
       )}
       Data:{data}
     </div>
+
+    </>
   );
 }

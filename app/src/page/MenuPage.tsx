@@ -21,7 +21,7 @@ export function MenuPage() {
         { sub_category_id: 2, sub_category_name: "脆邊煎雙蛋系列" },
         { sub_category_id: 3, sub_category_name: "香嫩炒滑蛋系列" },
         { sub_category_id: 4, sub_category_name: "至抵推薦" },
-        { sub_category_id: 5, sub_category_name: "test" },
+        // { sub_category_id: 5, sub_category_name: "test" },
         // { sub_category_id: 6, sub_category_name: "test2" },
         // { sub_category_id: 7, sub_category_name: "test3" },
         // { sub_category_id: 8, sub_category_name: "test4" },

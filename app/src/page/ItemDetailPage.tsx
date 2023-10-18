@@ -7,7 +7,7 @@ export function ItemDetailPage() {
   return (
     <div className={styles.container}>
       <TestFoodCard />
-      <div className={styles.foodTittle}>
+      <div className={styles.foodTitle}>
         <h1>食品要求</h1>
       </div>
       <div className={styles.foodOption}>
