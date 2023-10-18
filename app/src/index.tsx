@@ -17,6 +17,8 @@ import { ItemDetailPage } from "./page/ItemDetailPage";
 import { CheckOutPage } from "./page/CheckOutPage";
 import { Provider } from "react-redux";
 import store from "./store";
+import { AdminTicket } from "./page/AdminTicket";
+import { AdminScan } from "./page/AdminScan";
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -38,6 +40,8 @@ root.render(
               <Route index element={<AdminLoginPage />} />
               <Route path="orderRecord" element={<AdminOrderRecordPage />} />
               <Route path="menu" element={<AdminMenu />} />
+              <Route path="ticket" element={<AdminTicket />} />
+              <Route path="scan" element={<AdminScan />} />
               {/* <Route path="edit" element={<Edit />} />}
         {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
