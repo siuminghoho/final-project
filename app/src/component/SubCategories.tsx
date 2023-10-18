@@ -1,5 +1,5 @@
 import FoodCards from "./FoodCards";
-import { useSubcatMenu } from "../menuAPI";
+import { useSubcatMenu } from "../API/menuAPI";
 export function Subcategories(props: {
   menu_id: number;
   sub_category_id: number;
