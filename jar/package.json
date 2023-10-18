@@ -4,6 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "jar orderingfoodpj.jar"
+    "start": "java -jar orderingfoodpj.jar"
   }
 }
