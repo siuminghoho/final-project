@@ -13,24 +13,12 @@ import { MenuPage } from "./page/MenuPage";
 import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLoginPage } from "./page/AdminLoginPage";
-<<<<<<< HEAD
-import { AdminTicket } from "./page/AdminTicket";
-// import { AdminMessage } from "./page/AdminMessage";
-// import { AdminEditPage } from "./page/AdminEditPage";
-import { AdminScan } from "./page/AdminScan";
-
-import store from "./store";
-import { Provider } from "react-redux";
-
-import { ItemDetailPage } from "./page/ItemDetailPage";
-=======
 import { ItemDetailPage } from "./page/ItemDetailPage";
 import { CheckOutPage } from "./page/CheckOutPage";
 import { Provider } from "react-redux";
 import store from "./store";
 import { AdminTicket } from "./page/AdminTicket";
 import { AdminScan } from "./page/AdminScan";
->>>>>>> b70fa5e153d593031aeb90ba83981e703a5d6649
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -42,32 +30,6 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-<<<<<<< HEAD
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/foodDetail" element={<ItemDetailPage />} />
-          <Route path="/admin" element={<AdminRoot />}>
-            <Route index element={<AdminLoginPage />} />
-            <Route path="orderRecord" element={<AdminOrderRecordPage />} />
-            <Route path="menu" element={<AdminMenu />} />
-            <Route path="ticket" element={<AdminTicket />} />
-            <Route path="scan" element={<AdminScan />} />
-            {/*  <Route path="edit" element={<Edit />} />}
-      <QueryClientProvider client={queryClient}>
-      <Routes>
-      <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/admin" element={<AdminRoot />}>
-            <Route index element={<AdminLoginPage />} />
-            <Route path="orderRecord" element={<AdminOrderRecordPage />} />
-            <Route path="menu" element={<AdminMenu />} />
-            {/* <Route path="edit" element={<Edit />} />}
-        {/* <Route path="*" element={<NotFound />} /> */}
-          </Route>
-        </Routes>
-        {/* </QueryClientProvider> */}
-=======
         <QueryClientProvider client={queryClient}>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -85,7 +47,6 @@ root.render(
             </Route>
           </Routes>
         </QueryClientProvider>
->>>>>>> b70fa5e153d593031aeb90ba83981e703a5d6649
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

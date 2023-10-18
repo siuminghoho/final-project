@@ -3,12 +3,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./AdminLoginPage.css";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { RegisterAPI } from "../RegisterAPI";
-// import { LoginAPI } from '../LoginAPI';
+import { RegisterAPI } from "../API/registerAPI";
+import {Login } from '../API/loginAPI';
+
+
 export const AdminLoginPage = () => {
+
+ 
   // State hooks for form inputs
   const [staffNumber, setStaffNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   // State hook to toggle between Login and Register forms
   const [isLogin, setIsLogin] = useState(true);
@@ -20,7 +25,7 @@ export const AdminLoginPage = () => {
   const registerMutation = useMutation(RegisterAPI, {
     onSuccess: () => {
       // Invalidate queries if necessary, display success message, redirect user, etc.
-      queryClient.invalidateQueries("RegisterAPI");
+      queryClient.invalidateQueries(["RegisterAPI"]);
       alert("Registration Successful! You may now log in.");
     },
     onError: () => {
@@ -30,19 +35,12 @@ export const AdminLoginPage = () => {
   });
 
   // Mutation setup for login
-  const loginMutation = useMutation(LoginAPI, {
-    onSuccess: (data) => {
-      // Invalidate queries if necessary, set up user session, redirect, etc.
-      queryClient.invalidateQueries("userData");
-      alert("Login Successful!");
-      // Here, you would typically handle redirection to the main app, store user session, etc.
-      // e.g., history.push('/dashboard');
-    },
-    onError: () => {
-      // Handle errors locally
-      alert("An error occurred during login.");
-    },
-  });
+  const loginMutation = useMutation(async (data:{staffno:string, password:string}) =>
+  Login(data.staffno, data.password),
+{
+  onSuccess: ()=> queryClient.invalidateQueries(['login'])
+}
+)
 
   // Function to handle form submission
   const handleSubmit = (event: React.FormEvent) => {
@@ -141,15 +139,7 @@ export const AdminLoginPage = () => {
                     </button>
                   </form>
 
-                  <button
-                    type="submit"
-                    className="btn btn-outline-light btn-lg px-5"
-                    disabled={
-                      registerMutation.isLoading || loginMutation.isLoading
-                    }
-                  >
-                    {isLogin ? "Login" : "Register"}
-                  </button>
+
                 </form>
 
                 {/* Error Messages */}

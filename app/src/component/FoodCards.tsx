@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import styles from "./FoodCards.module.css";
 import { useNavigate } from "react-router-dom";
-import { Food } from "../menuAPI";
+import { Food } from "../API/menuAPI";
 
 function FoodCards(props: {
   menu_id: number;
@@ -16,15 +16,9 @@ function FoodCards(props: {
         <Card style={{ width: "100%", marginBottom: "50px" }} key={index}>
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
-<<<<<<< HEAD
-            <Card.Title>{food.sub_category_food_name}</Card.Title>
-            <div className={styles.title}>
-              <h1>$??</h1>
-=======
             <Card.Title>{food.name}</Card.Title>
             <div className={styles.tittle}>
               <h1>${food.price}</h1>
->>>>>>> b70fa5e153d593031aeb90ba83981e703a5d6649
               <Button
                 variant="primary"
                 onClick={() =>
