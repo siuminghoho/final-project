@@ -36,7 +36,7 @@ export function ItemDetailPage() {
       </div>
 
       <div className={styles.shoppingCarNavbars}>
-        <ShoppingCarNavbars />
+        {/* <ShoppingCarNavbars /> */}
       </div>
     </div>
   );

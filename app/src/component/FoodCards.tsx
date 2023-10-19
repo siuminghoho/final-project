@@ -28,6 +28,7 @@ function FoodCards(props: {
                       sub_category_id: props.sub_category_id,
                       // sub_category_food_id: food.sub_category_food_id,
                       sub_category_food_name: food.name,
+                      menu_price: food.price,
                     },
                   })
                 }

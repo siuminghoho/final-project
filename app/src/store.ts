@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { uuidReducer } from "./slice/uuidSlice"; 
+import { uuidReducer } from "./slice/uuidSlice";
+import orderReducer from "./slice/orderSlice";
 
 const store = configureStore({
   reducer: {
     uuid: uuidReducer,
+    order: orderReducer,
   },
 });
 

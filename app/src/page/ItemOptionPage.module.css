@@ -3,21 +3,6 @@
   justify-content: center;
 }
 
-.foodOption {
-  display: flex;
-  justify-content: space-between;
-}
-
-.optionLeft {
-  display: flex;
-  align-items: center;
-}
-
-.optionRight {
-  display: flex;
-  align-items: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -27,4 +12,9 @@
 
 .shoppingCarNavbars {
   margin-top: auto;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: flex-end;
 }

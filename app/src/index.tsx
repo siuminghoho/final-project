@@ -14,6 +14,7 @@ import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLoginPage } from "./page/AdminLoginPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
+import { ItemOptionPage } from "./page/ItemOptionPage";
 import { CheckOutPage } from "./page/CheckOutPage";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -34,7 +35,8 @@ root.render(
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<MenuPage />} />
-            <Route path="/foodDetail" element={<ItemDetailPage />} />
+            {/* <Route path="/foodDetail" element={<ItemDetailPage />} /> */}
+            <Route path="/foodDetail" element={<ItemOptionPage />} />
             <Route path="/checkOut" element={<CheckOutPage />} />
             <Route path="/admin" element={<AdminRoot />}>
               <Route index element={<AdminLoginPage />} />
