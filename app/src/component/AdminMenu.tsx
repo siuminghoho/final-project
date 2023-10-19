@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./AdminMenu.css";
 import { Link } from "react-router-dom";
 
-export const AdminMenu = () => {
+export function AdminMenu () {
   // State to manage the visibility of the Offcanvas
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -51,18 +51,21 @@ export const AdminMenu = () => {
                   <Link to="/admin/ticket">建立QR</Link> {/* Moved up: Generate QR code link */}
                 </li>
                 <li>
+                  <Link to="/admin/scan">掃描QR</Link> {/* Order records link */}
+                </li>
+                <li>
                   <Link to="/admin/orderRecord">點餐記錄</Link> {/* Order records link */}
                 </li>
                 {/* Repeating 'orderRecord' link removed, assuming it was a mistake. */}
                 {/* Other list items remain unchanged */}
-                <li>
+                {/* <li>
                   <Link to="admin/message">查閱信息</Link>
                 </li>
                 <li>
                   <Link to="admin/edit">編輯系統</Link>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="/logout">登出</Link>
+                  <Link to="/admin">登出</Link>
                 </li>
               </ul>
             </div>

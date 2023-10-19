@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
-import Webcam from "react-webcam";
-import { BrowserQRCodeReader } from "@zxing/browser";
 import { AdminMenu } from "../component/AdminMenu";
-// import "..page/AdminMenu.css";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
 import { setUuid } from "../slice/uuidSlice";
 import { useNavigate } from "react-router-dom";
+
+
+//library for read and decode QR code
+import Webcam from "react-webcam";
+import { BrowserQRCodeReader } from "@zxing/browser";
+
 
 function extractUUID(urlString: string) {
   // We create a URL object from the URL string to handle parsing correctly.

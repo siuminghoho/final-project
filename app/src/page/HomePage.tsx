@@ -30,7 +30,7 @@ export function HomePage() {
     <>
       <Modals />
       <div className="navbarControl">
-        <h1>damcham</h1>
+        <h1>茶。餐廳</h1>
       </div>
       <div className="cardContainer">
         {menus.data?.map((menu) => (
