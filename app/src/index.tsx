@@ -12,7 +12,7 @@ import AdminRoot from "./page/AdminRoot";
 import { MenuPage } from "./page/MenuPage";
 import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
-import { AdminLoginPage } from "./page/AdminLoginPage";
+import { AdminLandingPage } from "./page/AdminLandingPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
 import { ItemOptionPage } from "./page/ItemOptionPage";
 import { CheckOutPage } from "./page/CheckOutPage";
@@ -27,6 +27,8 @@ export const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -39,9 +41,9 @@ root.render(
             <Route path="/foodDetail" element={<ItemOptionPage />} />
             <Route path="/checkOut" element={<CheckOutPage />} />
             <Route path="/admin" element={<AdminRoot />}>
-              <Route index element={<AdminLoginPage />} />
-              <Route path="orderRecord" element={<AdminOrderRecordPage />} />
+              <Route index element={<AdminLandingPage />} />
               <Route path="menu" element={<AdminMenu />} />
+              <Route path="orderRecord" element={<AdminOrderRecordPage />} />
               <Route path="ticket" element={<AdminTicket />} />
               <Route path="scan" element={<AdminScan />} />
               {/* <Route path="edit" element={<Edit />} />}

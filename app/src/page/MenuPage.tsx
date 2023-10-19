@@ -104,7 +104,9 @@ export function MenuPage() {
         <div className={styles.menuTitle}>
           <h1>damcham</h1>
         </div>
+        <div className={styles.spacer}></div> 
       </div>
+    
       <div>
         {
           <Navbars

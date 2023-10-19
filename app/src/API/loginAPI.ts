@@ -1,21 +1,51 @@
-import { useQuery } from "@tanstack/react-query";
 
-interface Login {
-	staffno: string
-	password: string
+import { useMutation } from '@tanstack/react-query';
+
+interface LoginResponse {
+  token: string;
+  // ... other fields returned from your API if there are any
 }
 
-export function Login(staffno: string, password: string){
+export function useLogin() {
+  return useMutation<LoginResponse, Error, { staffno: string; password: string }>(
+    async ({ staffno, password }) => {
+      const response = await fetch(`${process.env.REACT_APP_API_SERVER}/adminLogin`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ staffno, password }),
+      });
 
-    const {isLoading, error, data, isFetching} = useQuery({
-        queryKey: ["login"],
-        queryFn: async ()=> {
-            const res = await fetch(`${process.env.REACT_APP_API_SERVER}/adminLogin`)
-            const result = await res.json()
-            return result.data as Login[]
-        }
-    })
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      return response.json();
+    }
+  );
 }
+
+
+
+// import { useQuery } from "@tanstack/react-query";
+
+// interface Login {
+// 	staffno: string
+// 	password: string
+// }
+
+// export function Login(staffno: string, password: string){
+
+//     const {isLoading, error, data, isFetching} = useQuery({
+//         queryKey: ["login"],
+//         queryFn: async ()=> {
+//             const res = await fetch(`${process.env.REACT_APP_API_SERVER}/adminLogin`)
+//             const result = await res.json()
+//             return result.data as Login[]
+//         }
+//     })
+// }
 
 
 

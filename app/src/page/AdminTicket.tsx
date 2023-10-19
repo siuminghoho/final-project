@@ -8,6 +8,8 @@ import { v4 as uuidv4 } from "uuid"; // for unique QR codes, install the 'uuid' 
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { AdminMenu } from "../component/AdminMenu";
+
 import "./AdminTicket.css";
 
 export const AdminTicket = () => {
@@ -43,49 +45,63 @@ export const AdminTicket = () => {
   // };
 
   return (
-    <div className="container">
-      {/* Conditional rendering of QRCode */}
-      {ticket && (
-        <div className="qr-container my-4">
-          <QRCode value={qrValue} />
-          <p className="mt-2">Scan to check in</p>
-          <p>UUID: {uuid}</p>
-          {/* Displaying the table number and people count */}
-          <div className="mt-2">
-            <p>Table No: {tableNo}</p>
-            <p>Number of People: {people}</p>
+    <>
+    <div>
+      <AdminMenu />
+      <div className="container my-custom-container">
+        {" "}
+        {/* Custom class for potential styling adjustments */}
+        {/* Conditional rendering of QRCode */}
+        {ticket && (
+          <div className="qr-container my-4">
+            <QRCode value={qrValue} />
+            <p className="mt-2">Scan to check in</p>
+            <p>UUID: {uuid}</p>
+            {/* Displaying the table number and people count */}
+            <div className="mt-2">
+              <p>Table No: {tableNo}</p>
+              <p>Number of People: {people}</p>
+            </div>
           </div>
+        )}
+        {/* The 'mt-4' class adds a margin to the top; you might want to reduce or remove it */}
+        <div className="action-container mt-2 置中">
+          {" "}
+          {/* Reduced margin-top */}
+          <button className="btn btn-primary" onClick={generateQRCode}>
+            Generate QR Code
+          </button>
+          <div className="d-flex align-items-center my-2 ">
+            {" "}
+            {/* Reduced margin */}
+            <span className="mr-2">人數</span> {/* People count label */}
+            
+            <div className ="人數控制 " >
+            <button
+              className="btn btn-primary "
+              onClick={() => handlePeopleChange("subtract")}
+            >
+              -
+            </button>
+            <span className="mx-2">{people}</span>
+            <button
+              className="btn btn-primary"
+              onClick={() => handlePeopleChange("add")}
+            >
+              +
+            </button>
+            </div>
+          </div>
+          <input
+            type="text"
+            value={tableNo}
+            onChange={(e) => setTableNo(e.target.value)}
+            className="form-control"
+            placeholder="枱號"
+          />
         </div>
-      )}
-
-      <button className="btn btn-primary" onClick={generateQRCode}>
-        Generate QR Code
-      </button>
-
-      <div className="d-flex align-items-center my-4">
-        <span className="mr-2">人數</span> {/* This is your added text */}
-        <button
-          className="btn btn-primary"
-          onClick={() => handlePeopleChange("subtract")}
-        >
-          -
-        </button>
-        <span className="mx-2">{people}</span>
-        <button
-          className="btn btn-primary"
-          onClick={() => handlePeopleChange("add")}
-        >
-          +
-        </button>
       </div>
-
-      <input
-        type="text"
-        value={tableNo}
-        onChange={(e) => setTableNo(e.target.value)} // You might want to update this on the server when it changes
-        className="form-control"
-        placeholder="枱號"
-      />
-    </div>
+      </div>
+    </>
   );
 };
