@@ -17,7 +17,7 @@ function FoodCards(props: {
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
             <Card.Title>{food.name}</Card.Title>
-            <div className={styles.tittle}>
+            <div className={styles.title}>
               <h1>${food.price}</h1>
               <Button
                 variant="primary"

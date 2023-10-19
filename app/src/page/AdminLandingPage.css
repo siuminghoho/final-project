@@ -3,11 +3,20 @@
 }
 
 .card-custom {
-  background-color: #007bff;
+
   color: 007BFF;
   border-radius: 1rem;
 }
 
 .font-size-lg {
   font-size: 1.5em; /* Adjust this value as needed */
+}
+
+
+.greenClass{
+  background-color: #07d136;
+}
+
+.blueClass{
+  background-color: #007bff;
 }

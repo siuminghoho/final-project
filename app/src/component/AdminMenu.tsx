@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./AdminMenu.css";
 import { Link } from "react-router-dom";
-// import { Container } from "react-bootstrap";
 
 export const AdminMenu = () => {
   // State to manage the visibility of the Offcanvas
@@ -16,12 +15,10 @@ export const AdminMenu = () => {
   return (
     <>
       <div className="safe-area-container ">
-        <div className="app-container">
-          {/* <div className="iphoneIsland"></div> */}
-          {/* <Container fluid> */}
+        {/* <div className="app-container"> */}
+          {/* Other components remain unchanged */}
 
-          {/* add bootstrap hamburger menu */}
-          <nav className="navbar navbar-expand-lg navbar-light bg-light p-0 adminNav">
+          <nav className="navbar navbar-light bg-light p-0 adminNav">
             <button
               className="navbar-toggler"
               type="button"
@@ -31,20 +28,13 @@ export const AdminMenu = () => {
             </button>
           </nav>
 
-          {/* <button
-            className="btn btn-primary"
-            type="button"
-            onClick={toggleSidebar}
-          >
-            Toggle sidebar
-          </button> */}
           {/* Offcanvas element */}
           <div
             className={`offcanvas offcanvas-start ${sidebarOpen ? "show" : ""}`}
             id="sidebar"
           >
             <div className="offcanvas-header">
-              <div id="sidebarLabel">restaurant name</div>
+            <img src="/photo/chaRestaurant.png" alt="Cha.restaurant" id="sidebarImage" />
               <button
                 type="button"
                 className="btn-close btn-close-custom text-reset"
@@ -55,15 +45,17 @@ export const AdminMenu = () => {
             <div className="offcanvas-body">
               <ul className="list-unstyled">
                 <li>
-                  <Link to="/admin">主頁</Link>
+                  <Link to="/admin">主頁</Link> {/* Home page link */}
                 </li>
                 <li>
-                  <Link to="/admin/orderRecord">點餐記錄</Link>
+                  <Link to="/admin/ticket">建立QR</Link> {/* Moved up: Generate QR code link */}
                 </li>
                 <li>
-                  <Link to="admin/inventory">存貨查詢</Link>
-                </li> 
-                 <li>
+                  <Link to="/admin/orderRecord">點餐記錄</Link> {/* Order records link */}
+                </li>
+                {/* Repeating 'orderRecord' link removed, assuming it was a mistake. */}
+                {/* Other list items remain unchanged */}
+                <li>
                   <Link to="admin/message">查閱信息</Link>
                 </li>
                 <li>
@@ -76,7 +68,7 @@ export const AdminMenu = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

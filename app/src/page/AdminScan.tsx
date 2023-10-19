@@ -3,7 +3,10 @@ import Webcam from "react-webcam";
 import { BrowserQRCodeReader } from "@zxing/browser";
 import { AdminMenu } from "../component/AdminMenu";
 // import "..page/AdminMenu.css";
-
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../store";
+import { setUuid } from "../slice/uuidSlice";
+import { useNavigate } from "react-router-dom";
 
 function extractUUID(urlString: string) {
   // We create a URL object from the URL string to handle parsing correctly.
@@ -19,11 +22,14 @@ function extractUUID(urlString: string) {
 }
 
 export function AdminScan() {
+  const uuid = useSelector((state: RootState) => state.uuid.uuid);
+  const dispatch = useDispatch();
   const mediaConstraints = { facingMode: "environment" };
-  const [data, setData] = useState("No result");
 
   const [devices, setDevices] = useState<any[]>([]);
   const codeReader = new BrowserQRCodeReader();
+
+  const navigate = useNavigate();
 
   const handleDevices = useCallback(
     (mediaDevices: any) =>
@@ -51,12 +57,14 @@ export function AdminScan() {
           console.log(result);
 
           const uuid = extractUUID(result.getText());
-          setData(uuid!);
+
+          dispatch(setUuid(uuid!));
           controls.stop();
+
+          setTimeout(() => { navigate("/admin/orderRecord") }, 1000);
         }
         if (error && !(error instanceof TypeError)) {
-          // console.error(error);
-          setData("error");
+          console.error(error);
         }
       }
     );
@@ -68,17 +76,16 @@ export function AdminScan() {
 
   return (
     <>
-    <div className="container">
-    <AdminMenu/>
-      <h1> Admin Scan</h1>
-      {devices.length > 0 && (
-        <div>
-          <Webcam audio={false} videoConstraints={mediaConstraints} />
-        </div>
-      )}
-      Data:{data}
-    </div>
-
+      <div className="container">
+        <AdminMenu />
+        <h1> Admin Scan</h1>
+        {devices.length > 0 && (
+          <div>
+            <Webcam audio={false} videoConstraints={mediaConstraints} />
+          </div>
+        )}
+        Scanned Result:{uuid}
+      </div>
     </>
   );
 }

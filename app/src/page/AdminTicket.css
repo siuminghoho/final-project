@@ -1,18 +1,48 @@
 /* AdminTicket.css */
-.container {
-    max-width: 600px;
-    margin-top: 50px;
-  }
-  
-  .qr-container {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .btn-custom {
-    margin: 0 5px;
-  }
-  
-  .alert-custom {
-    margin-top: 20px;
-  }
+
+/* Style for the custom container, adjust as needed */
+.my-custom-container {
+  padding-top: 50px; /* This reduces the padding at the top inside the container */
+  margin-top: auto; /* This ensures there's space above the container itself */
+  max-width: 600px; /* This limits the width of the container */
+}
+
+/* Styles for the QR container, specifically if you need them to be centered */
+.qr-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* If the action-container class is used, you can specify styles here */
+.action-container {
+  /* Add specific styles if needed, e.g., margin, padding adjustments */
+}
+
+/* Styles for custom buttons, if you're using them */
+.btn-custom {
+  margin: 0 5px;
+}
+
+/* If you have custom alerts, specify styles here */
+.alert-custom {
+  margin-top: 20px;
+}
+
+
+/* Add this to AdminTicket.css */
+.admin-menu-reduced {
+  margin-bottom: 0 !important; /* Assuming it's margin that needs to be reduced */
+  /* Add other styling adjustments as needed */
+}
+
+.人數控制{
+  padding:10px
+}
+
+.置中{
+  display: flex;
+  flex-direction: column;
+  text-align:center;
+  justify-content: center;
+  align-items: center;
+}
