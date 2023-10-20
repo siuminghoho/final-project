@@ -30,7 +30,7 @@
 
 .offcanvas {
   --bs-offcanvas-width: 80px;
-  background-color: orange;
+  background-color:orange;
   z-index: 1050;
 }
 
@@ -66,6 +66,7 @@
 }
 
 .offcanvas-body ul.list-unstyled {
+  font-weight: bold;
   padding: 0;
   margin: 0;
 }

@@ -2,6 +2,7 @@
 
 /* Style for the custom container, adjust as needed */
 .my-custom-container {
+  padding-left: 80px;
   padding-top: 50px; /* This reduces the padding at the top inside the container */
   margin-top: auto; /* This ensures there's space above the container itself */
   max-width: 600px; /* This limits the width of the container */

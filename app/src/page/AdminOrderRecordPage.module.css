@@ -1,13 +1,24 @@
+/* AdminOrderRecordPage.module.css */
+
+.big-container{
+  padding-left: 90px;
+  padding-right:10px;
+  padding-top: 50px;
+
+}
+
 .order-status-container {
+  color: #ffffff;
   display: flex;
   background-color: #007bff; /* Bootstrap primary blue color */
-  border: 2px solid black;
+  /* border: 2px solid black; */
   border-radius: 10px; /* Rounded corners */
   padding: 20px;
   margin-top: 20px; /* Adds some space between the button and container */
 }
 
-.column {
+.first-column,
+.second-column {
   flex: 1;
   padding: 10px;
 }
@@ -15,7 +26,7 @@
 .title,
 .item {
   padding: 5px 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .title {
@@ -23,5 +34,6 @@
 }
 
 .item {
-  color: #666; /* or any other color you prefer */
+  color: #ffffff; /* or any other color you prefer */
 }
+
