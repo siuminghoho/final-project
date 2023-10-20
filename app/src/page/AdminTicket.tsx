@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { AdminMenu } from "../component/AdminMenu";
 
-import "./AdminTicket.css";
+import styles from "./AdminTicket.module.css";
 
 export const AdminTicket = () => {
   const [ticket, setTicket] = useState(false);
@@ -48,35 +48,35 @@ export const AdminTicket = () => {
     <>
     <div>
       <AdminMenu />
-      <div className="container my-custom-container">
+      <div className={styles['my-custom-container']}>
         {" "}
         {/* Custom class for potential styling adjustments */}
         {/* Conditional rendering of QRCode */}
         {ticket && (
-          <div className="qr-container my-4">
+          <div className={styles['qr-container'] + " my-4"}>
             <QRCode value={qrValue} />
             <p className="mt-2">Scan to check in</p>
             <p>UUID: {uuid}</p>
             {/* Displaying the table number and people count */}
-            <div className="mt-2">
+            <div className={styles['mt-2']}>
               <p>Table No: {tableNo}</p>
               <p>Number of People: {people}</p>
             </div>
           </div>
         )}
         {/* The 'mt-4' class adds a margin to the top; you might want to reduce or remove it */}
-        <div className="action-container mt-2 置中">
+        <div className={`${styles['action-container']} ${styles['mt-2']} ${styles.置中}`}>
           {" "}
           {/* Reduced margin-top */}
           <button className="btn btn-primary" onClick={generateQRCode}>
             Generate QR Code
           </button>
-          <div className="d-flex align-items-center my-2 ">
+          <div className={`${styles['d-flex']} ${styles['align-items-center']} ${styles['my-2']}`}>
             {" "}
             {/* Reduced margin */}
-            <span className="mr-2">人數</span> {/* People count label */}
+            <span className={styles['mr-2']}>人數</span> {/* People count label */}
             
-            <div className ="人數控制 " >
+            <div className={styles['人數控制']}>
             <button
               className="btn btn-primary "
               onClick={() => handlePeopleChange("subtract")}

@@ -9,7 +9,7 @@ export function CheckOutPage() {
       <button type="button" onClick={() => navigate(-1)}>
         返回
       </button>
-      <div className={styles.tittle}>
+      <div className={styles.title}>
         <h1>結帳</h1>
       </div>
       <div>
