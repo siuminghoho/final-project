@@ -28,7 +28,6 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -37,8 +36,8 @@ root.render(
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<MenuPage />} />
-            {/* <Route path="/foodDetail" element={<ItemDetailPage />} /> */}
-            <Route path="/foodDetail" element={<ItemOptionPage />} />
+            <Route path="/itemDetail" element={<ItemDetailPage />} />
+            <Route path="/itemOption" element={<ItemOptionPage />} />
             <Route path="/checkOut" element={<CheckOutPage />} />
             <Route path="/admin" element={<AdminRoot />}>
               <Route index element={<AdminLandingPage />} />

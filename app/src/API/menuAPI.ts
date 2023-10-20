@@ -7,6 +7,7 @@ interface Menu {
 }
 
 export interface Food {
+  id: number;
   name: string;
   price: number;
 }
@@ -114,12 +115,14 @@ export function useFoodOption(setId: number) {
     queryKey: ["Subcat", setId],
     queryFn: async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_API_SERVER}/ieatwhat/showFoodoption?setId=${setId}`
+        `${process.env.REACT_APP_API_SERVER}/ieatwhat/showFoodoption?itemId=${setId}`
       );
       console.log(
         "REACT_APP_API_SERVER",
         process.env.REACT_APP_API_SERVER,
-        res
+        res,
+        "show setID",
+        setId
       );
       try {
         const result = await res.json();
