@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import "./AdminOrderRecordPage.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
+import { AdminMenu } from "../component/AdminMenu";
+
 
 export const AdminOrderRecordPage = () => {
   const uuid = useSelector((state: RootState) => state.uuid.uuid);
 
   return (
     <>
+      <AdminMenu />
       <div className="Title">客人點餐記錄</div>
       <h1>UUID: {uuid}</h1>
       <>
