@@ -37,7 +37,7 @@ export function HomePage() {
           <Cards
             menu_name={menu.name}
             menu_id={menu.id}
-            menu_img={menu.img}
+            menu_img={menu.menuimg}
             key={menu.id}
           ></Cards>
         ))}

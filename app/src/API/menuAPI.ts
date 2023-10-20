@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 interface Menu {
   id: number;
   name: string;
-  img: string;
+  menuimg: string;
 }
 
 export interface Food {
