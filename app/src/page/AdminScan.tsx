@@ -1,15 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { AdminMenu } from "../component/AdminMenu";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store";
+import { IRootState } from "../store";
 import { setUuid } from "../slice/uuidSlice";
 import { useNavigate } from "react-router-dom";
-
 
 //library for read and decode QR code
 import Webcam from "react-webcam";
 import { BrowserQRCodeReader } from "@zxing/browser";
-
 
 function extractUUID(urlString: string) {
   // We create a URL object from the URL string to handle parsing correctly.
@@ -25,7 +23,7 @@ function extractUUID(urlString: string) {
 }
 
 export function AdminScan() {
-  const uuid = useSelector((state: RootState) => state.uuid.uuid);
+  const uuid = useSelector((state: IRootState) => state.uuid.uuid);
   const dispatch = useDispatch();
   const mediaConstraints = { facingMode: "environment" };
 
@@ -64,7 +62,9 @@ export function AdminScan() {
           dispatch(setUuid(uuid!));
           controls.stop();
 
-          setTimeout(() => { navigate("/admin/orderRecord") }, 1000);
+          setTimeout(() => {
+            navigate("/admin/orderRecord");
+          }, 1000);
         }
         if (error && !(error instanceof TypeError)) {
           console.error(error);

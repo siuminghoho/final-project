@@ -1,18 +1,19 @@
 import Checkbox from "../component/CheckBox";
-import ShoppingCarNavbars from "../component/ShoppingCarNavbars";
+import ShoppingCartNavbars from "../component/ShoppingCartNavbars";
 import TestFoodCard from "../component/TestFoodCard";
 import styles from "./ItemOptionPage.module.css";
 import { useFoodOption } from "../API/menuAPI";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 export function ItemOptionPage() {
   const { state } = useLocation();
-  const { itemId, foodPrice } = state;
+  const { itemId, foodPrice, foodName } = state;
 
   const foodOptions = useFoodOption(itemId);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // console.log("it show foodOptions", foodOptions);
   // console.log("it is menu_id", menu_id);
@@ -29,33 +30,56 @@ export function ItemOptionPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <TestFoodCard />
-      <div className={styles.foodTitle}>
-        <h1>食品要求</h1>
-        <h1> {itemId}</h1>
+    <>
+      <div className={styles.title}>
+        <button
+          className={styles.returnButton}
+          type="button"
+          onClick={() => navigate(-1)}
+        >
+          返回
+        </button>
+        <div className={styles.menuTitle}>
+          <h1>茶。餐廳</h1>
+        </div>
+        <div className={styles.spacer}></div>
       </div>
-      <div className={styles.foodOption}>
-        {foodOptions.data
-          ? foodOptions.data.map((option, index) => (
-              <div key={index} className={styles.optionItem}>
-                <p>{option.name}</p>
-                <div className={styles.checkbox}>
-                  <Checkbox
-                    name={option.name}
-                    trackHandler={handleCheckboxChange}
-                  />
+      <div className={styles.container}>
+        {/* <TestFoodCard /> */}
+        <div className={styles.foodTitle}>
+          <h1>食品要求</h1>
+          {/* <h1> {itemId}</h1> */}
+        </div>
+        <div className={styles.foodOption}>
+          {foodOptions.data
+            ? foodOptions.data.map((option, index) => (
+                <div key={index} className={styles.optionItem}>
+                  <div className={styles.option}>
+                    <p>{option.name}</p>
+                    <div className={styles.checkbox}>
+                      <Checkbox
+                        name={option.name}
+                        trackHandler={handleCheckboxChange}
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))
-          : null}
-      </div>
+              ))
+            : null}
+        </div>
 
-      <div>{checkedItems}</div>
-      <div className={styles.shoppingCarNavbars}>
-        <ShoppingCarNavbars menu_price={foodPrice} />
+        {/* <div>{checkedItems}</div> */}
+        <div className={styles.shoppingCarNavbars}>
+          <ShoppingCartNavbars
+            menu_price={foodPrice}
+            item_id={itemId}
+            item_name={foodName}
+            checked_item={checkedItems}
+            checked_item_id={(foodOptions.data && foodOptions.data[0]?.id) || 0}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 
   // {

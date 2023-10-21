@@ -1,0 +1,9 @@
+.img {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+.title {
+  justify-content: center;
+  display: flex;
+}

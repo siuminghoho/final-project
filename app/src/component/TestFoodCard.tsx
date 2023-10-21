@@ -1,13 +1,24 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import styles from "./TestFoodCard.module.css";
 
-function TestFoodCard() {
+function TestFoodCard(props: {
+  food_price: number;
+  food_img: string;
+  food_name: string;
+}) {
   return (
     <Card style={{ width: "100%" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-      </Card.Body>
+      <Card.Img
+        className={styles.img}
+        variant="top"
+        src={`${props.food_img}`}
+      />
+      {/* <Card.Body>
+        <div className={styles.title}>
+          <Card.Title>{props.food_name}</Card.Title>
+        </div>
+      </Card.Body> */}
     </Card>
   );
 }

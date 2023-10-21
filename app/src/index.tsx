@@ -20,6 +20,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { AdminTicket } from "./page/AdminTicket";
 import { AdminScan } from "./page/AdminScan";
+import { ShoppingCartPage } from "./page/ShoppingCartPage";
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -38,6 +39,7 @@ root.render(
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/itemDetail" element={<ItemDetailPage />} />
             <Route path="/itemOption" element={<ItemOptionPage />} />
+            <Route path="/shoppingCart" element={<ShoppingCartPage />} />
             <Route path="/checkOut" element={<CheckOutPage />} />
             <Route path="/admin" element={<AdminRoot />}>
               <Route index element={<AdminLandingPage />} />

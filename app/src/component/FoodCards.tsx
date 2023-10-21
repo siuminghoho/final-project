@@ -13,13 +13,20 @@ function FoodCards(props: {
   return (
     <>
       {props.sub_categories_food.map((food, index) => (
-        <Card style={{ width: "100%", marginBottom: "50px" }} key={index}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+        <Card
+          style={{ width: "100%", height: "50%", marginBottom: "50px" }}
+          key={index}
+        >
+          <Card.Img
+            className={styles.img}
+            variant="top"
+            src={`${props.sub_categories_food[0].img}`}
+          />
           <Card.Body>
             <Card.Title>{food.name}</Card.Title>
             <div className={styles.title}>
               <h1>${food.price}</h1>
-              <h2>{food.id}</h2>
+              {/* <h2>{food.id}</h2> */}
               <Button
                 variant="primary"
                 onClick={() =>
@@ -31,6 +38,7 @@ function FoodCards(props: {
                       isSet: false,
                       sub_category_food_name: food.name,
                       menu_price: food.price,
+                      food_img: props.sub_categories_food[0].img,
                     },
                   })
                 }

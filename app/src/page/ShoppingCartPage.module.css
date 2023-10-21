@@ -1,34 +1,11 @@
-.foodTitle {
-  display: flex;
-  justify-content: center;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-}
-
-.shoppingCarNavbars {
-  margin-top: auto;
-}
-
-.checkbox {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* .foodOption {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-} */
-
-.option {
+.name {
   display: flex;
   justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
 }
 
 .title {
