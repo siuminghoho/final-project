@@ -3,11 +3,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import styles from "./Navbars.module.css";
 
-function ColorSchemesExample(props: {
+function Navbars(props: {
   menu_id: number;
   sub_categories: Array<{
-    sub_category_id: number;
-    sub_category_name: string;
+    id: number;
+    name: string;
   }>;
   onClick: (subCategoryId: number, subCategoryName: string) => void;
 }) {
@@ -19,16 +19,11 @@ function ColorSchemesExample(props: {
             {props.sub_categories.map((category) => (
               <Nav.Link
                 href=""
-                key={category.sub_category_id}
-                onClick={() =>
-                  props.onClick(
-                    category.sub_category_id,
-                    category.sub_category_name
-                  )
-                }
+                key={category.id}
+                onClick={() => props.onClick(category.id, category.name)}
                 className={styles["nav-link-custom"]}
               >
-                {category.sub_category_name}
+                {category.name}
               </Nav.Link>
             ))}
           </Nav>
@@ -38,4 +33,4 @@ function ColorSchemesExample(props: {
   );
 }
 
-export default ColorSchemesExample;
+export default Navbars;

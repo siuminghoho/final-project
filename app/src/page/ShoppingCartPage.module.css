@@ -1,0 +1,39 @@
+.name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffc107;
+  padding: 0 10px;
+}
+.menuTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnButton,
+.spacer {
+  width: 50px; /* for example, or whatever width suits your design */
+  flex-shrink: 0; /* Prevents shrinking */
+  /* Add other styles as needed */
+}
+
+.returnButton {
+  background-color: #ffc107;
+  color: black;
+  width: auto;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -14,11 +14,13 @@ import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
 import { AdminLandingPage } from "./page/AdminLandingPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
+import { ItemOptionPage } from "./page/ItemOptionPage";
 import { CheckOutPage } from "./page/CheckOutPage";
 import { Provider } from "react-redux";
 import store from "./store";
 import { AdminTicket } from "./page/AdminTicket";
 import { AdminScan } from "./page/AdminScan";
+import { ShoppingCartPage } from "./page/ShoppingCartPage";
 import { PrivateRoute } from "./component/PrivateRoute";
 
 // import { AdminMessage } from "./page/AdminMessage";
@@ -28,7 +30,6 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -37,7 +38,9 @@ root.render(
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<MenuPage />} />
-            <Route path="/foodDetail" element={<ItemDetailPage />} />
+            <Route path="/itemDetail" element={<ItemDetailPage />} />
+            <Route path="/itemOption" element={<ItemOptionPage />} />
+            <Route path="/shoppingCart" element={<ShoppingCartPage />} />
             <Route path="/checkOut" element={<CheckOutPage />} />
             <Route path="/admin" element={<AdminRoot />}>
               <Route index element={<AdminLandingPage />} />
@@ -46,7 +49,6 @@ root.render(
               <Route path="ticket" element={<AdminTicket />} />
               <Route path="scan" element={<AdminScan />} />
               <Route path="logout" element={<AdminRoot />} />
-        
             </Route>
           </Routes>
         </QueryClientProvider>

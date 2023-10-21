@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styles from "./AdminOrderRecordPage.module.css";
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { IRootState } from "../store";
 import { AdminMenu } from "../component/AdminMenu";
 
-
 export const AdminOrderRecordPage = () => {
-  const uuid = useSelector((state: RootState) => state.uuid.uuid);
+  const uuid = useSelector((state: IRootState) => state.uuid.uuid);
 
   return (
     <>

@@ -25,7 +25,7 @@ function Cards(props: {
       <Card style={{ width: "10rem", height: "10rem" }}>
         <Card.Img
           variant="top"
-          src={`./photo/${props.menu_img}`}
+          src={`${props.menu_img}`}
           style={{ width: "100%", height: "70%" }}
         />
         <Card.Body>
