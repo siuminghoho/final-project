@@ -93,7 +93,7 @@ export function MenuPage() {
           返回
         </button>
         <div className={styles.menuTitle}>
-          <h1>damcham</h1>
+          <h1>茶。餐廳</h1>
         </div>
         <div className={styles.spacer}></div> 
       </div>

@@ -22,7 +22,7 @@ export const RegisterAPI = async (data: Register) => {
 
     const result = await response.json();
     console.log("check register result", result);
-    alert("Register Success");
+    // alert("Register Success");
     return true;
   } catch (e) {
     console.log("check error", e);

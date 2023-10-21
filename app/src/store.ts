@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { uuidReducer } from "./slice/uuidSlice"; 
+import { authReducer } from "./slice/authSlice";
 
 
 //edit by felix
@@ -15,6 +16,7 @@ import { uuidReducer } from "./slice/uuidSlice";
 const store = configureStore({
   reducer: {
     uuid: uuidReducer,
+    auth: authReducer,
   },
 });
 
