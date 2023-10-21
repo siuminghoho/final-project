@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 import { HomePage } from "./page/HomePage";
-import AdminRoot from "./page/AdminRoot";
+import AdminRoot from "./component/AdminRoot";
 import { MenuPage } from "./page/MenuPage";
 import { AdminMenu } from "./component/AdminMenu";
 import { AdminOrderRecordPage } from "./page/AdminOrderRecordPage";
@@ -21,6 +21,7 @@ import store from "./store";
 import { AdminTicket } from "./page/AdminTicket";
 import { AdminScan } from "./page/AdminScan";
 import { ShoppingCartPage } from "./page/ShoppingCartPage";
+import { PrivateRoute } from "./component/PrivateRoute";
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
@@ -47,8 +48,7 @@ root.render(
               <Route path="orderRecord" element={<AdminOrderRecordPage />} />
               <Route path="ticket" element={<AdminTicket />} />
               <Route path="scan" element={<AdminScan />} />
-              {/* <Route path="edit" element={<Edit />} />}
-        {/* <Route path="*" element={<NotFound />} /> */}
+              <Route path="logout" element={<AdminRoot />} />
             </Route>
           </Routes>
         </QueryClientProvider>

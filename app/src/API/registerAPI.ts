@@ -26,6 +26,7 @@ export const RegisterAPI = async (data: Register) => {
     return true;
   } catch (e) {
     console.log("check error", e);
-    throw new Error("Server responded with an error");
+    // throw new Error("Server responded with an error");
+    return false;
   }
 };

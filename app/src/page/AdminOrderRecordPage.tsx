@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./AdminOrderRecordPage.css";
+import styles from "./AdminOrderRecordPage.module.css";
 import { useSelector } from "react-redux";
 import { IRootState } from "../store";
 import { AdminMenu } from "../component/AdminMenu";
@@ -10,24 +10,23 @@ export const AdminOrderRecordPage = () => {
   return (
     <>
       <AdminMenu />
-      <div className="Title">客人點餐記錄</div>
-      <h1>UUID: {uuid}</h1>
-      <>
-        <div className="order-status-container">
-          <div className="first-column">
-            <div className="title">產品1</div>
-            <div className="title">數量</div>
-            <div className="title">特別要求</div>
-          </div>
-
-          <div className="second-column">
-            <div className="item">產品1顯示</div>
-            <div className="item">數量顯示</div>
-            <div className="item">特別要求顯示</div>
-          </div>
+      <div className={styles["big-container"]}>
+      <div className={styles.title}>客人點餐記錄</div>
+      <div>UUID: {uuid}</div>
+      <div className={styles["order-status-container"]}>
+        <div className={styles["first-column"]}>
+          <div className={styles.title}>產品1</div>
+          <div className={styles.title}>數量</div>
+          <div className={styles.title}>特別要求</div>
         </div>
-      </>
-      ;
+
+        <div className={styles["second-column"]}>
+          <div className={styles.item}>雞腿紅米飯</div>
+          <div className={styles.item}>1</div>
+          <div className={styles.item}>多飯</div>
+        </div>
+      </div>
+      </div>
     </>
   );
 };

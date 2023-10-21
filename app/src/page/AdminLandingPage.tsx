@@ -6,6 +6,8 @@ import { RegisterAPI } from "../API/registerAPI";
 // import { useLogin } from "../API/loginAPI";
 
 import Swal from "sweetalert2";
+import { LoginAPI } from "../API/loginAPI";
+import authSlice from "../slice/authSlice";
 
 export const AdminLandingPage = () => {
   // State hooks for form inputs
@@ -19,14 +21,26 @@ export const AdminLandingPage = () => {
     event.preventDefault(); // Prevent page reload
     if (isLogin) {
       // For login, make sure the necessary fields are present
-      if (!staffNumber || !password) {
+      if (!username || !staffNumber || !password) {
         // alert("Please enter your staff number and password.");
         Swal.fire({
           icon: "error",
           title: "錯誤",
-          text: "請同時輸入員工編號和密碼",
+          text: "請同時輸入用戶名稱，員工編號和密碼",
         });
         return;
+      }
+
+      let result = await LoginAPI({staffno: staffNumber, password: password,username: username});
+
+      if(result){
+        Swal.fire({
+          icon: "success",
+          title: "success",
+          text: "login success",
+        });
+
+        
       }
       // handleLogin(staffNumber, password);
     } else {
@@ -42,11 +56,6 @@ export const AdminLandingPage = () => {
 
         return;
       }
-      // registerMutation.mutate({
-      //   username: username,
-      //   staffno: staffNumber,
-      //   password: password,
-      // });
 
       let result = await RegisterAPI({
         staffno: staffNumber,
@@ -61,30 +70,7 @@ export const AdminLandingPage = () => {
     }
   };
 
-  // {
-  //   event.preventDefault(); // Prevent page reload
 
-  //   // Validate inputs
-  //   if (!staffNumber.trim() || !password.trim() || !username.trim()) {
-  //     alert("Please fill in all fields.");
-  //     return;
-  //   }
-
-  //   const userDetails = {
-  //     staffno: staffNumber,
-  //     password: password,
-  //   };
-
-  //   // Decide which API call to make based on the form currently displayed
-  //   if (isLogin) {
-  //     loginMutation.mutate(userDetails);
-  //   } else {
-  //     registerMutation.mutate({
-  //       ...userDetails,
-  //       username: staffNumber,
-  //     });
-  //   }
-  // };
 
   // Function to toggle between Login and Register forms
   const toggleForm = () => {
@@ -121,7 +107,7 @@ export const AdminLandingPage = () => {
 
                 <form onSubmit={handleSubmit}>
                   {/* Conditional rendering for the 'Username' field */}
-                  {!isLogin && (
+                  {/* {!isLogin && ( */}
                     <div className="form-outline form-white mb-4">
                       <input
                         type="text"
@@ -136,7 +122,7 @@ export const AdminLandingPage = () => {
                         htmlFor="typeUsername"
                       ></label>
                     </div>
-                  )}
+                  {/* )} */}
 
                   <div className="form-outline form-white mb-4">
                     <input
@@ -171,19 +157,14 @@ export const AdminLandingPage = () => {
                   <button
                     type="submit"
                     className="btn btn-outline-light btn-lg px-5"
-                    // disabled={
-                    //   registerMutation.isLoading || loginMutation.isLoading
-                    // }
+
                   >
                     {isLogin ? "登入" : "註冊"}
                   </button>
                 </form>
 
                 {/* Error Messages */}
-                {/* {registerMutation.isError ? (
-                  <p>Error during registration.</p>
-                ) : null}
-                {loginMutation.isError ? <p>Error during login.</p> : null} */}
+  
               </div>
             </div>
           </div>
