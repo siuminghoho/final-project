@@ -4,7 +4,7 @@ import React, { FormEvent, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { AppDispatch, RootState } from "../store";
+import { AppDispatch, IRootState } from "../store";
 
 import Swal from "sweetalert2";
 
@@ -14,7 +14,7 @@ import { loginAsync } from "../authAsyncThunk";
 export const AdminLandingPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const authState = useSelector((state: RootState) => state.auth); // Accessing the auth slice of the state
+  const authState = useSelector((state: IRootState) => state.auth); // Accessing the auth slice of the state
   const { isAuthenticated, loading, error } = authState;
 
   // State hooks for form inputs
@@ -23,7 +23,7 @@ export const AdminLandingPage = () => {
   const [username, setUsername] = useState("");
   const [isLogin, setIsLogin] = useState(false);
 
-  const result = useSelector((state: RootState) => state.auth.isAuthenticated);
+  const result = useSelector((state: IRootState) => state.auth.isAuthenticated);
 
   // useEffect(() => {
   //   if (isAuthenticated) {
