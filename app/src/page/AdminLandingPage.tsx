@@ -67,8 +67,8 @@ export const AdminLandingPage = () => {
         console.log("going to navigate");
         setIsLogin(true);
 
-        //once login success, redirect to admin menu page
-        navigate("/admin/menu");
+        //once login success, redirect to admin ticket page
+        navigate("/admin/ticket");
       }
     }
     // handleLogin(staffNumber, password);

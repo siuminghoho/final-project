@@ -34,4 +34,31 @@ export const loginUser = async (data: {
   }
 };
 
+//write a logic to logout user
+
+export const logoutUser = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_SERVER}/adminLogin`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+
+    const result = await response.json();
+    console.log("check logout result", result);
+    // alert("logout Success");
+    localStorage.removeItem("token");
+    localStorage.removeItem("adminId");
+    return true;
+  } catch (e) {
+    console.log("check error", e);
+    // throw new Error("Server responded with an error");
+    return false;
+  }
+};
 

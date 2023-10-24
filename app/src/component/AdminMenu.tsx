@@ -44,9 +44,9 @@ export function AdminMenu () {
             </div>
             <div className="offcanvas-body">
               <ul className="list-unstyled">
-                <li>
-                  <Link to="/admin">主頁</Link> {/* Home page link */}
-                </li>
+                {/* <li> */}
+                  {/* <Link to="/admin">主頁</Link>  */}
+                {/* </li> */}
                 <li>
                   <Link to="/admin/ticket">建立QR</Link> {/* Moved up: Generate QR code link */}
                 </li>
