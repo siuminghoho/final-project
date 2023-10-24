@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+import dotenv from "dotenv";
+
+
+
 // import {react-router-dom} from 'react-router-dom';
 
 import QRCode from "qrcode.react"; // you'll need to install this package for QR code generation
@@ -25,7 +29,8 @@ export const AdminTicket = () => {
   const generateQRCode = () => {
     const uniqueCode = uuidv4(); // generate a unique code
     // const link = `http://192.168.160.81:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
-    const link = `http://192.168.1.114:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
+    // const link = `http://192.168.1.114:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
+    const link = `${process.env.GENCODEIP}/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
     setQrValue(link);
     setUuid(uniqueCode);
     setTicket(true); // you might want to set some condition or reset this later
