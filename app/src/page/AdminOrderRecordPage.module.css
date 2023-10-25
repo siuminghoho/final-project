@@ -36,4 +36,10 @@
 .item {
   color: #ffffff; /* or any other color you prefer */
 }
+.not-completed {
+  background-color: rgba(255, 0, 0, 0.561);
+}
 
+.delivered {
+  background-color: rgba(0, 0, 255, 0.603);
+}

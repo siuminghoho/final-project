@@ -27,6 +27,7 @@ export function useMenu() {
   const { isLoading, error, data, isFetching } = useQuery({
     queryKey: ["Menu"],
     queryFn: async () => {
+      // const res = await fetch(`${process.env.REACT_APP_API_SERVER}/index`);
       const res = await fetch(`${process.env.REACT_APP_API_SERVER}/index`);
       console.log(
         "REACT_APP_API_SERVER",

@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ./index.css */
+body {
+  background-color: rgba(250, 207, 132, 0.277) !important; /* Add !important to ensure override of other background-color styles */
+}
