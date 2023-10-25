@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+
+import dotenv from "dotenv";
 
 // import {react-router-dom} from 'react-router-dom';
 
@@ -20,12 +22,14 @@ export const AdminTicket = () => {
   const [people, setPeople] = useState(0);
 
   const [tableNo, setTableNo] = useState("");
+
   const [uuid, setUuid] = useState("");
 
   const generateQRCode = () => {
     const uniqueCode = uuidv4(); // generate a unique code
     // const link = `http://192.168.160.81:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
     const link = `http://192.168.1.114:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
+    // const link = `${process.env.FRONTIP}/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
     setQrValue(link);
     setUuid(uniqueCode);
     setTicket(true); // you might want to set some condition or reset this later
@@ -44,6 +48,48 @@ export const AdminTicket = () => {
   // }) => {
   //   setTableNo(event.target.value);
   // };
+
+  const fetchUUID = async () => {
+
+    const postData = {
+      "table_number":tableNo,
+      "people_count":people,
+      "uuid":uuid
+
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/orderingrecord/insertuuid", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      // Optionally, handle the response data
+      const data = await response.json();
+      console.log('Success:', data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (uuid) { // Only attempt to fetch if uuid is truthy (i.e., not null, undefined, or empty string)
+      fetchUUID();
+    }
+  }, [uuid]); // Dependency array with 'uuid', so the effect runs every time 'uuid' changes
+
+
+
+
+
+
+
 
   return (
     <>

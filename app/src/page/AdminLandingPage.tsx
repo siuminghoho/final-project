@@ -109,29 +109,37 @@ export const AdminLandingPage = () => {
     setIsLogin(!isLogin);
   };
 
-  const cardClass = `card card-custom ${isLogin ? "blueClass" : "greenClass"}`;
+  const cardClass = `card card-custom ${isLogin ? "loginClass" : "signupClass"}`;
 
   const buttonStyle = {
-    backgroundColor: isLogin ? "#007bff" : "#07d136", // blue for login, green for register
-    borderColor: isLogin ? "#007bff" : "#07d136", // Same as background, or transparent, based on your design
+    backgroundColor: isLogin ? "#007bff" : "#fb9c02", // blue for login, green for register
+    borderColor: isLogin ? "#007bff" : "#fb9c02", // Same as background, or transparent, based on your design
     color: "white", // text color
+    // fontSize:"10px",
   };
 
   // The UI of the component
   return (
     <section className="vh-100 gradient-custom">
-      <div className="container py-5 h-100">
+          <div className="dogLogo">
+      {/* other navbar content might go here */}
+      <img src="/photo/chaRestaurant.png" alt="Cha.restaurant" id="restaurantImage" />
+    </div>
+      {/* <img src="/photo/chaRestaurant.png" alt="Cha.restaurant" id="restaurantImage" /> */}
+      {/* below to set the login signup card size */}
+      <div className="container py-5 h-100 w-100"> 
+    <div className="restaurantTitle">茶。餐廳餐飲系統</div>
         <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5 padding-leftright">
             <div className={cardClass}>
-              <div className="card-body p-5 text-center">
+              <div className="card-body p-5 text-center ">
                 <h2 className="fw-bold mb-2 text-uppercase">
                   {isLogin ? "登入" : "註冊"}
                 </h2>
 
                 <button
                   style={buttonStyle}
-                  className="btn btn-primary btn-lg px-5 mb-3"
+                  className="btn btn-primary btn-lg px-5 mb-3" /*login-singup-toggle*/
                   onClick={toggleForm}
                 >
                   轉到 {isLogin ? "註冊" : "登入"}

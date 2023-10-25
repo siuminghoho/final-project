@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "../store";
 import { setUuid } from "../slice/uuidSlice";
 import { useNavigate } from "react-router-dom";
+import styles from "./AdminScan.module.css";
+import Swal from "sweetalert2";
 
 //library for read and decode QR code
 import Webcam from "react-webcam";
@@ -63,7 +65,15 @@ export function AdminScan() {
           controls.stop();
 
           setTimeout(() => {
-            navigate("/admin/orderRecord");
+            if (uuid) {
+              navigate("/admin/orderRecord");
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "錯誤",
+                text: "請掃描正確的QR code",
+              });
+            }
           }, 1000);
         }
         if (error && !(error instanceof TypeError)) {
@@ -77,17 +87,29 @@ export function AdminScan() {
     scan();
   }
 
+  //fetch the generated uuid to the backend, to route http://localhost:8080/orderingrecord/insertuuid
+
   return (
     <>
-      <div className="container">
+      <div className={styles.container}>
         <AdminMenu />
-        <h1> Admin Scan</h1>
+        <h1>掃描下單/查單</h1>
         {devices.length > 0 && (
-          <div>
-            <Webcam audio={false} videoConstraints={mediaConstraints} />
+          <div className={styles.webcamContainer}>
+            {" "}
+            {/* use new style */}
+            <div className={styles.webcamInner}>
+              {" "}
+              {/* use new style */}
+              <Webcam
+                audio={false}
+                videoConstraints={mediaConstraints}
+                // style={{ width: '100%', height: '100%' }}
+              />
+            </div>
           </div>
         )}
-        Scanned Result:{uuid}
+        Scanned Result: {uuid}
       </div>
     </>
   );
