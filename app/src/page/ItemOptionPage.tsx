@@ -6,28 +6,57 @@ import { useFoodOption } from "../API/menuAPI";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { clear_staging_area, optionDataType } from "../slice/shoppingCartSlice";
 
 export function ItemOptionPage() {
   const { state } = useLocation();
-  const { itemId, foodPrice, foodName } = state;
+  const {
+    itemId,
+    foodPrice,
+    foodName,
+    itemObj,
+    foodItemId,
+    foodItemOptions,
+    priority,
+  } = state;
 
-  const foodOptions = useFoodOption(itemId);
-  const dispatch = useDispatch();
+  console.log(`ItemOptionPage`, foodItemOptions);
+  const foodOptions = useFoodOption(itemId, itemObj);
   const navigate = useNavigate();
 
   // console.log("it show foodOptions", foodOptions);
   // console.log("it is menu_id", menu_id);
   // console.log("it is state", state);
 
-  const [checkedItems, setCheckedItems] = useState<any[]>([]);
+  const [checkedItems, setCheckedItems] = useState<optionDataType[]>([]);
 
-  const handleCheckboxChange = (name: string, isChecked: boolean) => {
+  const handleCheckboxChange = (
+    option_name: string,
+    option_id: number,
+    option_price: number,
+    isChecked: boolean
+  ) => {
     if (isChecked) {
-      setCheckedItems([...checkedItems, name]);
+      console.log("checked passed", option_id, option_name);
+
+      setCheckedItems([
+        ...checkedItems,
+        {
+          option_id: option_id,
+          option_name: option_name,
+          option_price: option_price,
+        },
+      ]);
     } else {
-      setCheckedItems(checkedItems.filter((item: any) => item !== name));
+      setCheckedItems(
+        checkedItems.filter(
+          (item: optionDataType) => item.option_id !== option_id
+        )
+      );
     }
   };
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -35,7 +64,10 @@ export function ItemOptionPage() {
         <button
           className={styles.returnButton}
           type="button"
-          onClick={() => navigate(-1)}
+          onClick={() => {
+            dispatch(clear_staging_area());
+            navigate(-2);
+          }}
         >
           返回
         </button>
@@ -47,18 +79,20 @@ export function ItemOptionPage() {
       <div className={styles.container}>
         {/* <TestFoodCard /> */}
         <div className={styles.foodTitle}>
-          <h1>食品要求</h1>
+          <h1>附加要求</h1>
           {/* <h1> {itemId}</h1> */}
         </div>
         <div className={styles.foodOption}>
-          {foodOptions.data
-            ? foodOptions.data.map((option, index) => (
+          {foodItemOptions
+            ? foodItemOptions.map((option: any, index: any) => (
                 <div key={index} className={styles.optionItem}>
                   <div className={styles.option}>
                     <p>{option.name}</p>
                     <div className={styles.checkbox}>
                       <Checkbox
-                        name={option.name}
+                        option_name={option.name}
+                        option_id={option.id}
+                        option_price={option.price}
                         trackHandler={handleCheckboxChange}
                       />
                     </div>
@@ -68,47 +102,22 @@ export function ItemOptionPage() {
             : null}
         </div>
 
-        {/* <div>{checkedItems}</div> */}
+        {/* <div>
+          {checkedItems.map((entry) => (
+            <h2>{entry.option_name}</h2>
+          ))}
+        </div> */}
         <div className={styles.shoppingCarNavbars}>
           <ShoppingCartNavbars
             menu_price={foodPrice}
             item_id={itemId}
             item_name={foodName}
             checked_item={checkedItems}
-            checked_item_id={(foodOptions.data && foodOptions.data[0]?.id) || 0}
+            itemObj={itemObj}
+            choices={checkedItems}
           />
         </div>
       </div>
     </>
   );
-
-  // {
-  //   /* <div className={styles.foodOption}>
-  //         <div className={styles.optionLeft}>
-  //           <h1>少飯</h1>
-  //         </div>
-  //         <div className={styles.optionRight}>
-  //           <Checkbox />
-  //         </div>
-  //       </div>
-  //       <h1 className={styles.foodTitle}>飲品</h1>
-
-  //       <div className={styles.foodOption}>
-  //         <div className={styles.optionLeft}>
-  //           <h1>熱檬茶</h1>
-  //         </div>
-  //         <div className={styles.optionRight}>
-  //           <Checkbox />
-  //         </div>
-  //       </div>
-
-  //       <div className={styles.foodOption}>
-  //         <div className={styles.optionLeft}>
-  //           <h1>凍奶茶</h1>
-  //         </div>
-  //         <div className={styles.optionRight}>
-  //           <Checkbox />
-  //         </div>
-  //       </div> */
-  // }
 }

@@ -7,17 +7,23 @@ import shoppingCartPhoto from "../photo/shopping-cart.png";
 import styles from "./ShoppingCartNavbars.module.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { add_record } from "../slice/shoppingCartSlice";
+import {
+  add_record,
+  move_staging_area,
+  optionDataType,
+} from "../slice/shoppingCartSlice";
 import { useNavigate } from "react-router";
 
 import ShoppingCartModal from "./ShoppingCartModal";
+import { useLocation } from "react-router-dom";
 
 function ShoppingCartNavbars(props: {
   menu_price: number;
   item_id: number;
   item_name: string;
-  checked_item: Array<string>;
-  checked_item_id: number;
+  checked_item: Array<optionDataType>;
+  itemObj: boolean;
+  choices: Array<optionDataType>;
 }) {
   const [count, setCount] = useState<number>(1);
   const [price, setPrice] = useState<number>(props.menu_price);
@@ -43,23 +49,30 @@ function ShoppingCartNavbars(props: {
 
   const handleCheckout = () => {
     setShowModal(!showModal);
-    dispatch(
-      add_record({
-        item_id: props.item_id,
-        set_id: null,
-        item_name: props.item_name,
-        set_name: null,
-        price: props.menu_price,
-        choices: [
-          {
-            choice_id: props.checked_item_id,
-            choice_name: props.checked_item[0],
-            choice_price: null as unknown as number,
-          },
-        ],
-        set_choices: [],
-      })
-    );
+    if (props.itemObj) {
+      dispatch(
+        add_record({
+          item_id: props.item_id,
+          item_name: props.item_name,
+          price: props.menu_price,
+          choices: props.choices,
+        })
+      );
+    } else {
+      dispatch(
+        add_record({
+          set_choices: [
+            {
+              item_id: props.item_id,
+              item_name: props.item_name,
+              option_choices: props.checked_item || [],
+            },
+          ],
+        })
+      );
+    }
+
+    dispatch(move_staging_area());
   };
 
   return (

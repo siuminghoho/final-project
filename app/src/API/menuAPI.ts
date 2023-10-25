@@ -11,18 +11,22 @@ export interface Food {
   name: string;
   price: number;
   img: string;
+  itemObj: boolean;
 }
 interface Subcat {
   id: number;
   name: string;
 }
 
-interface FoodOption {
+export interface FoodOption {
   id: number;
   name: string;
   options: Array<{ id: number; name: string }>;
+  priority: number;
+  listName: string;
 }
 
+//這是home page
 export function useMenu() {
   const { isLoading, error, data, isFetching } = useQuery({
     queryKey: ["Menu"],
@@ -51,6 +55,7 @@ export function useMenu() {
   };
 }
 
+//這是subcat 下所有food的資料
 export function useSubcatMenu(menu_id: number, subcat_menu_name: string) {
   const { isLoading, error, data, isFetching } = useQuery({
     queryKey: ["SubcatMenu", menu_id, subcat_menu_name],
@@ -80,7 +85,7 @@ export function useSubcatMenu(menu_id: number, subcat_menu_name: string) {
     isFetching: isFetching,
   };
 }
-
+//這是navbar subcat
 export function useSubcat(menu_id: number) {
   const { isLoading, error, data, isFetching } = useQuery({
     queryKey: ["Subcat", menu_id],
@@ -111,19 +116,21 @@ export function useSubcat(menu_id: number) {
   };
 }
 
-export function useFoodOption(setId: number) {
+//這是subcat 內food的內容
+export function useFoodOption(id: number, itemObj: boolean) {
+  const param = itemObj ? "itemId" : "setId";
   const { isLoading, error, data, isFetching } = useQuery({
-    queryKey: ["Subcat", setId],
+    queryKey: ["Subcat", id],
     queryFn: async () => {
       const res = await fetch(
-        `${process.env.REACT_APP_API_SERVER}/ieatwhat/showFoodoption?itemId=${setId}`
+        `${process.env.REACT_APP_API_SERVER}/ieatwhat/showFoodoption?${param}=${id}`
       );
       console.log(
         "REACT_APP_API_SERVER",
         process.env.REACT_APP_API_SERVER,
         res,
-        "show setID",
-        setId
+        "show id",
+        id
       );
       try {
         const result = await res.json();
