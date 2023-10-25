@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 interface Menu {
   id: number;
@@ -36,11 +37,16 @@ export function useMenu() {
       );
       try {
         const result = await res.json();
+        console.log(result);
         return result as Menu[];
       } catch (err) {
         console.log(err);
         throw err as Error;
       }
+      // const res = await axios.get(`${process.env.REACT_APP_API_SERVER}/index`);
+      // const result = res.data;
+      // console.log(result);
+      // return result as Menu[];
     },
   });
 

@@ -6,9 +6,9 @@ export const loginUser = async (data: {
   try {
     // console.log("hi1");
     const response = await fetch(
-      `localhost:8080/adminLogin`,
+      // `localhost:8080/adminLogin`,
 
-      // `${process.env.REACT_APP_API_SERVER}/adminLogin`,
+      `${process.env.REACT_APP_API_SERVER}/adminLogin`,
       {
         method: "POST",
         headers: {
@@ -41,8 +41,8 @@ export const loginUser = async (data: {
 export const logoutUser = async () => {
   try {
     const response = await fetch(
-      `localhost:8080/adminLogin`,
-      // `${process.env.REACT_APP_API_SERVER}/adminLogin`,
+      // `localhost:8080/adminLogin`,
+      `${process.env.REACT_APP_API_SERVER}/adminLogin`,
 
       {
         method: "POST",

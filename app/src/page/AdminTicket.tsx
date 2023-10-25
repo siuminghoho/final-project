@@ -29,7 +29,7 @@ export const AdminTicket = () => {
     const uniqueCode = uuidv4(); // generate a unique code
     // const link = `http://192.168.160.81:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
     const link = `http://192.168.1.114:3000/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
-    // const link = `${process.env.GENCODEIP}/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
+    // const link = `${process.env.FRONTIP}/?uuid=${uniqueCode}`; // this is the link that will be encoded in QR code
     setQrValue(link);
     setUuid(uniqueCode);
     setTicket(true); // you might want to set some condition or reset this later
