@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { uuidReducer } from "./slice/uuidSlice"; 
+import { uuidReducer } from "./slice/uuidSlice";
 import { authReducer } from "./slice/authSlice";
+import orderRecordReducer from "./slice/orderRecordSlice";
+
 import shoppingCartReducer from "./slice/shoppingCartSlice";
 
 //edit by felix
@@ -16,6 +18,7 @@ const store = configureStore({
     uuid: uuidReducer,
     auth: authReducer,
     shoppingCart: shoppingCartReducer,
+    orderRecord: orderRecordReducer,
   },
 });
 

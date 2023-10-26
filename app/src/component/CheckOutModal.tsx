@@ -21,7 +21,7 @@ function CheckOutModal() {
   const homePage = () => {
     dispatch(clear_staging_area);
     setShow(false);
-    navigate("/");
+    navigate("/orderRecord");
   };
 
   return (
@@ -30,10 +30,10 @@ function CheckOutModal() {
         <Modal.Header closeButton>
           <Modal.Title>恭喜成功付款!</Modal.Title>
         </Modal.Header>
-        <Modal.Body>你將會回菜單首頁</Modal.Body>
+        <Modal.Body>你將會去訂單記錄畫面</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={homePage}>
-            回到菜單首頁
+            去訂單記錄畫面
           </Button>
         </Modal.Footer>
       </Modal>
