@@ -8,7 +8,7 @@ function ShoppingNavbars() {
   const navigate = useNavigate();
   return (
     <Container className={styles.container}>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className={styles.container}>
         <Container>
           <img
             className={styles.shoppingCart}

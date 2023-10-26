@@ -1,9 +1,18 @@
 .shoppingCart {
   width: 50px;
+  display: flex;
+  justify-content: end;
 }
 
 .button {
-  justify-content: flex-end;
-  align-items: center;
   display: flex;
+  justify-content: end;
+  margin-bottom: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: end;
+  margin-bottom: auto;
+  background-color: rgba(250, 207, 132, 0.277);
 }

@@ -76,8 +76,8 @@ function ShoppingCartNavbars(props: {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container className={styles.button}>
+    <Container className={styles.button}>
+      <Navbar expand="lg" className={styles.container}>
         {/* <Button onClick={subtractItem} variant="primary">
           -
         </Button>
@@ -95,8 +95,8 @@ function ShoppingCartNavbars(props: {
           className={styles.shoppingCart}
         />
         {showModal && <ShoppingCartModal />}
-      </Container>
-    </Navbar>
+      </Navbar>
+    </Container>
   );
 }
 
