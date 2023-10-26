@@ -6,7 +6,10 @@ import { Button } from "react-bootstrap";
 import CheckOutModal from "../component/CheckOutModal";
 import { useState } from "react";
 import { orderEntry } from "../slice/orderRecordSlice";
-import { clear_staging_area } from "../slice/shoppingCartSlice";
+import {
+  clear_shoppingCart,
+  clear_staging_area,
+} from "../slice/shoppingCartSlice";
 
 export function OrderRecordPage() {
   const orderRecord = useSelector(
@@ -27,6 +30,7 @@ export function OrderRecordPage() {
           type="button"
           onClick={() => {
             dispatch(clear_staging_area());
+            dispatch(clear_shoppingCart());
             navigate("/");
           }}
         >

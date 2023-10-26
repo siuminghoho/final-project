@@ -48,14 +48,8 @@ export const orderRecordSlice = createSlice({
     //   choices: [],
     //   set_choices: [],
     // }
-    clear_shoppingCart: (
-      state: orderRecordState,
-      action: PayloadAction<{ data: orderEntry[] }>
-    ) => {
-      state.orderRecord = [];
-    },
   },
 });
 
-export const { add_oderRecord, clear_shoppingCart } = orderRecordSlice.actions;
+export const { add_oderRecord } = orderRecordSlice.actions;
 export default orderRecordSlice.reducer;

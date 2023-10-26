@@ -5,7 +5,11 @@ import { useNavigate } from "react-router";
 import { Button } from "react-bootstrap";
 import CheckOutModal from "../component/CheckOutModal";
 import { useState } from "react";
-import { clear_staging_area, orderEntry } from "../slice/shoppingCartSlice";
+import {
+  clear_shoppingCart,
+  clear_staging_area,
+  orderEntry,
+} from "../slice/shoppingCartSlice";
 import { add_oderRecord } from "../slice/orderRecordSlice";
 
 export function ShoppingCartPage() {
@@ -21,6 +25,7 @@ export function ShoppingCartPage() {
   const checkOut = () => {
     setShowModal(!showModal);
     dispatch(add_oderRecord({ data: orderRecord }));
+    // dispatch(clear_shoppingCart());
   };
   const dispatch = useDispatch();
   return (
