@@ -1,12 +1,21 @@
 import { Button } from "react-bootstrap";
 import styles from "./CheckOutPage.module.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { clear_staging_area } from "../slice/shoppingCartSlice";
 
 export function CheckOutPage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <>
-      <button type="button" onClick={() => navigate(-1)}>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(clear_staging_area());
+          navigate(-1);
+        }}
+      >
         返回
       </button>
       <div className={styles.title}>

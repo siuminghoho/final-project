@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { uuidReducer } from "./slice/uuidSlice";
+import { uuidReducer } from "./slice/uuidSlice"; 
+import { authReducer } from "./slice/authSlice";
 import shoppingCartReducer from "./slice/shoppingCartSlice";
 
 //edit by felix
@@ -13,6 +14,7 @@ import shoppingCartReducer from "./slice/shoppingCartSlice";
 const store = configureStore({
   reducer: {
     uuid: uuidReducer,
+    auth: authReducer,
     shoppingCart: shoppingCartReducer,
   },
 });

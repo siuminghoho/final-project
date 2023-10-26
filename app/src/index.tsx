@@ -16,6 +16,7 @@ import { AdminLandingPage } from "./page/AdminLandingPage";
 import { ItemDetailPage } from "./page/ItemDetailPage";
 import { ItemOptionPage } from "./page/ItemOptionPage";
 import { CheckOutPage } from "./page/CheckOutPage";
+// import { StripePaymentForm } from "./page/Payment";
 import { Provider } from "react-redux";
 import store from "./store";
 import { AdminTicket } from "./page/AdminTicket";
@@ -28,6 +29,7 @@ import { PrivateRoute } from "./component/PrivateRoute";
 export const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
+
 );
 
 root.render(
@@ -42,6 +44,7 @@ root.render(
             <Route path="/itemOption" element={<ItemOptionPage />} />
             <Route path="/shoppingCart" element={<ShoppingCartPage />} />
             <Route path="/checkOut" element={<CheckOutPage />} />
+            {/* <Route path="/payment" element={<StripePaymentForm />} /> */}
             <Route path="/admin" element={<AdminRoot />}>
               <Route index element={<AdminLandingPage />} />
               <Route path="menu" element={<AdminMenu />} />
@@ -55,9 +58,12 @@ root.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+

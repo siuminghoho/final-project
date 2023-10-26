@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "src/store.ts", "../authAPI.ts"  ]
+, "src/store.ts", "../loginAPI.ts"  ]
 }

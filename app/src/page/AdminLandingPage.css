@@ -9,14 +9,50 @@
 }
 
 .font-size-lg {
-  font-size: 1.5em; /* Adjust this value as needed */
+  font-size: 1em; /* Adjust this value as needed */
 }
 
 
-.greenClass{
-  background-color: #07d136;
+.signupClass{
+  background-color: #fb9c02;
+
 }
 
-.blueClass{
+.loginClass{
   background-color: #007bff;
+}
+
+/* .login-singup-toggle {
+  font-size: 10px;  */
+  /* Add other styling properties if needed */
+/* } */
+
+#restaurantImage {
+  width: 100px; /* Or any size to your liking */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute; /* Position it in relation to the viewport */
+  top: 10px; /* Position from the top */
+  left: 50%; /* Start the left edge at the middle of the page */
+  transform: translateX(-50%); /* Shift it left by half of its own width */
+  
+}
+
+.restaurantTitle {
+  padding-bottom: 20px;
+  position: absolute; 
+  top: 120px; /* This positions the text below the image. Adjust based on your layout, image size, and desired spacing. */
+  left: 50%; /* Centering the text relative to the container. */
+  transform: translateX(-50%); /* Ensures the text is centered. */
+  font-size: 24px; /* Optional: for larger, more readable text. */
+  text-align: center; /* Ensures the text is properly aligned in the center. */
+  width: 100%; /* Ensures the text block takes full width, adjust as necessary. */
+}
+
+/* .card-body {
+padding-left: 20px;
+padding-right:20px
+} */
+.padding-leftright{
+  padding-left: 30px;
+  padding-right:30px
 }
