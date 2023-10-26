@@ -57,7 +57,9 @@ export function HomePage() {
           ></Cards>
         ))}
       </div>
-      <ShoppingNavbars />
+      <div className="homepage-shoppingNavbars">
+        <ShoppingNavbars />
+      </div>
     </>
   );
 }

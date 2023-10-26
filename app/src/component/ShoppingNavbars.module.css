@@ -9,3 +9,10 @@
   justify-content: end;
   margin-bottom: auto;
 }
+
+
+
+.homepage-shoppingNavbars {
+  margin-top: auto;
+  /* Pushes the navbar to the bottom of the flex container */
+}

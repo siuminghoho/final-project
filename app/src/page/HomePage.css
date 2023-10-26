@@ -16,3 +16,9 @@
   width: calc(50% - 10px);
   margin-bottom: 20px;
 }
+
+.homepage-shoppingNavbars{
+  display: flex;
+  justify-content: center;
+  
+}
