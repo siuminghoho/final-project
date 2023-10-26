@@ -103,7 +103,7 @@ export const AdminTicket = () => {
           <div className={styles['qr-container'] + " my-4"}>
             <QRCode value={qrValue} />
             <p className="mt-2">Scan to check in</p>
-            <p>UUID: {uuid}</p>
+            <p>UUID: {uuid.split("").slice(-3)}</p>
             {/* Displaying the table number and people count */}
             <div className={styles['mt-2']}>
               <p>Table No: {tableNo}</p>

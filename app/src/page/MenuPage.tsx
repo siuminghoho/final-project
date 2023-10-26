@@ -8,6 +8,7 @@ import styles from "./MenuPage.module.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSubcat } from "../API/menuAPI";
 
+
 export function MenuPage() {
   const { state } = useLocation();
   const { menu_name, menu_id } = state;
