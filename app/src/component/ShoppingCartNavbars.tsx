@@ -78,14 +78,14 @@ function ShoppingCartNavbars(props: {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className={styles.button}>
-        <Button onClick={subtractItem} variant="primary">
+        {/* <Button onClick={subtractItem} variant="primary">
           -
         </Button>
         <h3 className="mx-3">{count}</h3>
         <Button onClick={addItem} variant="primary">
           +
         </Button>
-        <h1>{price}</h1>
+        <h1>{price}</h1> */}
         <img
           onClick={() => {
             handleCheckout();

@@ -7,6 +7,7 @@ import { ItemDetailPage } from "./ItemDetailPage";
 import styles from "./MenuPage.module.css";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSubcat } from "../API/menuAPI";
+import ShoppingNavbars from "../component/ShoppingNavbars";
 
 export function MenuPage() {
   const { state } = useLocation();
@@ -68,6 +69,7 @@ export function MenuPage() {
         sub_category_id={selected_sub_category.sub_category_id}
         sub_category_name={selected_sub_category.sub_category_name}
       ></Subcategories>
+      <ShoppingNavbars />
     </>
   );
 }

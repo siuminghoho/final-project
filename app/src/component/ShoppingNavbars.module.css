@@ -1,0 +1,11 @@
+.shoppingCart {
+  width: 50px;
+  display: flex;
+  justify-content: end;
+}
+
+.container {
+  display: flex;
+  justify-content: end;
+  margin-bottom: auto;
+}

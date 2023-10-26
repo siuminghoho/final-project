@@ -29,7 +29,7 @@ export function ShoppingCartPage() {
           type="button"
           onClick={() => {
             dispatch(clear_staging_area());
-            navigate(-3);
+            navigate("/");
           }}
         >
           返回
