@@ -9,16 +9,20 @@ export function Subcategories(props: {
     props.menu_id,
     props.sub_category_name
   );
-
+  console.log("this is subcategoriesFoodData", subcategoriesFoodData.data);
   return (
     <>
-      {subcategoriesFoodData.data && (
-        <FoodCards
-          menu_id={props.menu_id}
-          sub_category_id={props.sub_category_id}
-          sub_categories_food={subcategoriesFoodData.data}
-        />
-      )}
+      {subcategoriesFoodData.data &&
+        subcategoriesFoodData.data.map((item) => (
+          <FoodCards
+            key={item.id}
+            menu_id={props.menu_id}
+            sub_category_id={props.sub_category_id}
+            sub_categories_food={[item]}
+            itemObj={item.itemObj}
+            itemId={item.id}
+          />
+        ))}
     </>
   );
 }

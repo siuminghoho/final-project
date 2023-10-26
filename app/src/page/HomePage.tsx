@@ -3,6 +3,10 @@ import Cards from "../component/Cards";
 import Modals from "../component/Modals";
 import { useMenu } from "../API/menuAPI";
 import "./HomePage.css";
+import ShoppingNavbars from "../component/ShoppingNavbars";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setUuid } from "../slice/uuidSlice";
 // import { useQueryClient } from "@tanstack/react-query";
 
 export function HomePage() {
@@ -26,6 +30,17 @@ export function HomePage() {
   // ];
   const menus = useMenu();
   // const queryClient = useQueryClient();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const uuid = url.searchParams.get("uuid");
+
+    if (uuid) {
+      dispatch(setUuid(uuid));
+    }
+  }, [dispatch]);
+
   return (
     <>
       <Modals />
@@ -42,6 +57,7 @@ export function HomePage() {
           ></Cards>
         ))}
       </div>
+      <ShoppingNavbars />
     </>
   );
 }
