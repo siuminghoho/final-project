@@ -27,6 +27,7 @@ export function ShoppingCartPage() {
     dispatch(add_oderRecord({ data: orderRecord }));
     // dispatch(clear_shoppingCart());
   };
+
   const dispatch = useDispatch();
   return (
     <>
@@ -88,3 +89,9 @@ export function ShoppingCartPage() {
     </>
   );
 }
+
+
+
+
+
+

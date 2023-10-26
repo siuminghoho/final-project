@@ -5,9 +5,10 @@ import { useMenu } from "../API/menuAPI";
 import "./HomePage.css";
 import ShoppingNavbars from "../component/ShoppingNavbars";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setUuid } from "../slice/uuidSlice";
 // import { useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 export function HomePage() {
   // const menusDummyData = [
@@ -32,6 +33,13 @@ export function HomePage() {
   // const queryClient = useQueryClient();
   const dispatch = useDispatch();
 
+  const [clickCount, setClickCount] = useState(0);
+  const handleClick = () => {
+    setClickCount(clickCount + 1);
+  };
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const url = new URL(window.location.href);
     const uuid = url.searchParams.get("uuid");
@@ -44,8 +52,15 @@ export function HomePage() {
   return (
     <>
       <Modals />
-      <div className="navbarControl">
+      <div onClick={handleClick} className="navbarControl">
         <h1>茶。餐廳</h1>
+        {clickCount >= 5 ? (
+          <button className="武器" onClick={() => navigate("/admin/scan")}>
+            Admin
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="cardContainer">
         {menus.data?.map((menu) => (

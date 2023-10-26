@@ -8,9 +8,9 @@
 }
 
 .order-status-container {
-  color: #ffffff;
+  color: white;
   display: flex;
-  background-color: #007bff; /* Bootstrap primary blue color */
+  background-color: rgba(255, 0, 0, 0.643); /* Bootstrap primary blue color */
   /* border: 2px solid black; */
   border-radius: 10px; /* Rounded corners */
   padding: 20px;
@@ -25,6 +25,7 @@
 
 .title,
 .item {
+  padding-left: 100px;
   padding: 5px 0;
   font-size: 20px;
 }

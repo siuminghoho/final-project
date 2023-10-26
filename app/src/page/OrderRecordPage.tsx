@@ -22,8 +22,16 @@ export function OrderRecordPage() {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+  const goToAdmin =() => {
+    navigate("/admin/orderRecord");
+  }
   return (
     <>
+    <div>
+
+      
+    </div>
+    {/* <button onClick ={goToAdmin }>..</button> */}
       <div className={styles.title}>
         <button
           className={styles.returnButton}

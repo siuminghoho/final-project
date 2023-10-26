@@ -87,7 +87,8 @@ export const shoppingCartSlice = createSlice({
       // return state;
     },
     move_staging_area: (state: shoppingCartState) => {
-      state.orderRecord.push(state.staging_area!);
+      if (state.staging_area.set_id !== null)
+        state.orderRecord.push(state.staging_area!);
 
       // state.staging_area.set_id = null;
       // state.staging_area.set_name = null;

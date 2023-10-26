@@ -15,6 +15,7 @@ export interface orderEntry {
   set_name?: string | null;
   price?: number | null; //單點
   choices?: Array<optionDataType>; //單點
+  status?: String;
   set_choices?: Array<{
     item_id: number;
     item_name: string;
@@ -37,7 +38,18 @@ export const orderRecordSlice = createSlice({
       state: orderRecordState,
       action: PayloadAction<{ data: orderEntry[] }>
     ) => {
-      state.orderRecord = action.payload.data;
+      state.orderRecord = action.payload.data.map((entry) => {
+        return { ...entry, status: "not-completed" };
+      });
+    },
+    toggle_status: (
+      state: orderRecordState,
+      action: PayloadAction<{ index: number }>
+    ) => {
+      state.orderRecord[action.payload.index].status =
+        state.orderRecord[action.payload.index].status === "not-completed"
+          ? "delivered"
+          : "not-completed";
     },
     // clear_orderRecord:(state:orderRecordState)=>{
     //   item_id: null,
@@ -51,5 +63,5 @@ export const orderRecordSlice = createSlice({
   },
 });
 
-export const { add_oderRecord } = orderRecordSlice.actions;
+export const { add_oderRecord,toggle_status } = orderRecordSlice.actions;
 export default orderRecordSlice.reducer;
