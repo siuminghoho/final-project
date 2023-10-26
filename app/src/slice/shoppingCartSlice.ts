@@ -101,9 +101,16 @@ export const shoppingCartSlice = createSlice({
       state.staging_area.price = null;
       state.staging_area.set_choices = [];
     },
+    clear_shoppingCart: (state: shoppingCartState) => {
+      state.orderRecord = [];
+    },
   },
 });
 
-export const { add_record, move_staging_area, clear_staging_area } =
-  shoppingCartSlice.actions;
+export const {
+  add_record,
+  move_staging_area,
+  clear_staging_area,
+  clear_shoppingCart,
+} = shoppingCartSlice.actions;
 export default shoppingCartSlice.reducer;

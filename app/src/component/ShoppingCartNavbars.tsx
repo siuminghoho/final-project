@@ -16,6 +16,7 @@ import { useNavigate } from "react-router";
 
 import ShoppingCartModal from "./ShoppingCartModal";
 import { useLocation } from "react-router-dom";
+import { add_oderRecord } from "../slice/orderRecordSlice";
 
 function ShoppingCartNavbars(props: {
   menu_price: number;
@@ -89,6 +90,7 @@ function ShoppingCartNavbars(props: {
         <img
           onClick={() => {
             handleCheckout();
+            // handleOrderRecord();
           }}
           src={shoppingCartPhoto}
           alt="shopping cart"

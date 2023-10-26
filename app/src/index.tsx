@@ -23,13 +23,13 @@ import { AdminTicket } from "./page/AdminTicket";
 import { AdminScan } from "./page/AdminScan";
 import { ShoppingCartPage } from "./page/ShoppingCartPage";
 import { PrivateRoute } from "./component/PrivateRoute";
+import { OrderRecordPage } from "./page/OrderRecordPage";
 
 // import { AdminMessage } from "./page/AdminMessage";
 // import { AdminEditPage } from "./page/AdminEditPage";
 export const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
-
 );
 
 root.render(
@@ -43,7 +43,7 @@ root.render(
             <Route path="/itemDetail" element={<ItemDetailPage />} />
             <Route path="/itemOption" element={<ItemOptionPage />} />
             <Route path="/shoppingCart" element={<ShoppingCartPage />} />
-            <Route path="/checkOut" element={<CheckOutPage />} />
+            <Route path="/orderRecord" element={<OrderRecordPage />} />
             {/* <Route path="/payment" element={<StripePaymentForm />} /> */}
             <Route path="/admin" element={<AdminRoot />}>
               <Route index element={<AdminLandingPage />} />
@@ -58,12 +58,9 @@ root.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
-  
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import dotenv from "dotenv";
 
@@ -50,107 +50,104 @@ export const AdminTicket = () => {
   // };
 
   const fetchUUID = async () => {
-
     const postData = {
-      "table_number":tableNo,
-      "people_count":people,
-      "uuid":uuid
-
-    }
+      table_number: tableNo,
+      people_count: people,
+      uuid: uuid,
+    };
 
     try {
-      const response = await fetch("http://localhost:8080/orderingrecord/insertuuid", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "http://localhost:8080/orderingrecord/insertuuid",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(postData),
+        }
+      );
 
-          "Authorization":`Bearer ${localStorage.getItem('token')}` 
-
-        },
-        body: JSON.stringify(postData),
-      });
-  
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       // Optionally, handle the response data
       const data = await response.json();
-      console.log('Success:', data);
+      console.log("Success:", data);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
   };
 
   useEffect(() => {
-    if (uuid) { // Only attempt to fetch if uuid is truthy (i.e., not null, undefined, or empty string)
+    if (uuid) {
+      // Only attempt to fetch if uuid is truthy (i.e., not null, undefined, or empty string)
       fetchUUID();
     }
   }, [uuid]); // Dependency array with 'uuid', so the effect runs every time 'uuid' changes
 
-
-
-
-
-
-
-
   return (
     <>
-    <div>
-      <AdminMenu />
-      <div className={styles['my-custom-container']}>
-        {" "}
-        {/* Custom class for potential styling adjustments */}
-        {/* Conditional rendering of QRCode */}
-        {ticket && (
-          <div className={styles['qr-container'] + " my-4"}>
-            <QRCode value={qrValue} />
-            <p className="mt-2">Scan to check in</p>
-            <p>UUID: {uuid.split("").slice(-3)}</p>
-            {/* Displaying the table number and people count */}
-            <div className={styles['mt-2']}>
-              <p>Table No: {tableNo}</p>
-              <p>Number of People: {people}</p>
-            </div>
-          </div>
-        )}
-        {/* The 'mt-4' class adds a margin to the top; you might want to reduce or remove it */}
-        <div className={`${styles['action-container']} ${styles['mt-2']} ${styles.置中}`}>
+      <div>
+        <AdminMenu />
+        <div className={styles["my-custom-container"]}>
           {" "}
-          {/* Reduced margin-top */}
-          <button className="btn btn-primary" onClick={generateQRCode}>
-            Generate QR Code
-          </button>
-          <div className={`${styles['d-flex']} ${styles['align-items-center']} ${styles['my-2']}`}>
-            {" "}
-            {/* Reduced margin */}
-            <span className={styles['mr-2']}>人數</span> {/* People count label */}
-            
-            <div className={styles['人數控制']}>
-            <button
-              className="btn btn-primary "
-              onClick={() => handlePeopleChange("subtract")}
-            >
-              -
-            </button>
-            <span className="mx-2">{people}</span>
-            <button
-              className="btn btn-primary"
-              onClick={() => handlePeopleChange("add")}
-            >
-              +
-            </button>
+          {/* Custom class for potential styling adjustments */}
+          {/* Conditional rendering of QRCode */}
+          {ticket && (
+            <div className={styles["qr-container"] + " my-4"}>
+              <QRCode value={qrValue} />
+              <p className="mt-2">Scan to check in</p>
+              <p>UUID: {uuid.split("").slice(-3)}</p>
+              {/* Displaying the table number and people count */}
+              <div className={styles["mt-2"]}>
+                <p>Table No: {tableNo}</p>
+                <p>Number of People: {people}</p>
+              </div>
             </div>
+          )}
+          {/* The 'mt-4' class adds a margin to the top; you might want to reduce or remove it */}
+          <div
+            className={`${styles["action-container"]} ${styles["mt-2"]} ${styles.置中}`}
+          >
+            {" "}
+            {/* Reduced margin-top */}
+            <button className="btn btn-primary" onClick={generateQRCode}>
+              Generate QR Code
+            </button>
+            <div
+              className={`${styles["d-flex"]} ${styles["align-items-center"]} ${styles["my-2"]}`}
+            >
+              {" "}
+              {/* Reduced margin */}
+              <span className={styles["mr-2"]}>人數</span>{" "}
+              {/* People count label */}
+              <div className={styles["人數控制"]}>
+                <button
+                  className="btn btn-primary "
+                  onClick={() => handlePeopleChange("subtract")}
+                >
+                  -
+                </button>
+                <span className="mx-2">{people}</span>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handlePeopleChange("add")}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <input
+              type="text"
+              value={tableNo}
+              onChange={(e) => setTableNo(e.target.value)}
+              className="form-control"
+              placeholder="枱號"
+            />
           </div>
-          <input
-            type="text"
-            value={tableNo}
-            onChange={(e) => setTableNo(e.target.value)}
-            className="form-control"
-            placeholder="枱號"
-          />
         </div>
-      </div>
       </div>
     </>
   );
